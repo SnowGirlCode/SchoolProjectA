@@ -54,13 +54,13 @@ setIconImage(image);
         home3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        iddoc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        passPanel = new javax.swing.JPanel();
-        pass = new javax.swing.JPasswordField();
-        showpass = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        pwd = new javax.swing.JPasswordField();
+        showpwd = new javax.swing.JButton();
+        pseudo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusableWindowState(false);
@@ -88,7 +88,7 @@ setIconImage(image);
 
         jLabel4.setFont(new java.awt.Font("A Gentle Touch", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Gestion de la Maternité");
+        jLabel4.setText("Gestion de Maternité");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\return-button (1).png")); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,7 +98,7 @@ setIconImage(image);
         });
 
         jLabel6.setFont(new java.awt.Font("BonvenoCF", 0, 24)); // NOI18N
-        jLabel6.setText("Doctor Login Panel");
+        jLabel6.setText("Doctor: Panneau de connexion");
 
         home3.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\home.png")); // NOI18N
         home3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,35 +111,33 @@ setIconImage(image);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel6)))
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
                 .addComponent(home3)
-                .addGap(35, 35, 35))
+                .addGap(89, 89, 89))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(159, 159, 159))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(home3)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)))
-                .addContainerGap())
+                .addGap(12, 12, 12)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(home3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -148,24 +146,6 @@ setIconImage(image);
         jLabel1.setFont(new java.awt.Font("Bebas", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("S'authentifier ici:");
-
-        iddoc.setFont(new java.awt.Font("Adobe Hebrew", 0, 18)); // NOI18N
-        iddoc.setForeground(new java.awt.Color(204, 0, 0));
-        iddoc.setText("Pseudo");
-        iddoc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        iddoc.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                iddocFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                iddocFocusLost(evt);
-            }
-        });
-        iddoc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iddocActionPerformed(evt);
-            }
-        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\pwd72.png")); // NOI18N
 
@@ -180,49 +160,67 @@ setIconImage(image);
 
         jLabel5.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\Users-icon6.png")); // NOI18N
 
-        passPanel.setBackground(new java.awt.Color(255, 255, 255));
-        passPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        pass.setFont(new java.awt.Font("Adobe Hebrew", 0, 18)); // NOI18N
-        pass.setForeground(new java.awt.Color(204, 0, 0));
-        pass.setText("Mot De Passe");
-        pass.setBorder(null);
-        pass.addFocusListener(new java.awt.event.FocusAdapter() {
+        pwd.setFont(new java.awt.Font("Adobe Hebrew", 0, 18)); // NOI18N
+        pwd.setForeground(new java.awt.Color(204, 0, 0));
+        pwd.setText("Mot De Passe");
+        pwd.setBorder(null);
+        pwd.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                passFocusGained(evt);
+                pwdFocusGained(evt);
             }
         });
 
-        showpass.setBackground(new java.awt.Color(204, 0, 0));
-        showpass.setFont(new java.awt.Font("Adobe Hebrew", 0, 14)); // NOI18N
-        showpass.setForeground(new java.awt.Color(255, 255, 255));
-        showpass.setText("Show");
-        showpass.addActionListener(new java.awt.event.ActionListener() {
+        showpwd.setBackground(new java.awt.Color(204, 0, 0));
+        showpwd.setFont(new java.awt.Font("Adobe Hebrew", 0, 14)); // NOI18N
+        showpwd.setForeground(new java.awt.Color(255, 255, 255));
+        showpwd.setText("Show");
+        showpwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showpassActionPerformed(evt);
+                showpwdActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout passPanelLayout = new javax.swing.GroupLayout(passPanel);
-        passPanel.setLayout(passPanelLayout);
-        passPanelLayout.setHorizontalGroup(
-            passPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(passPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pass, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                .addComponent(pwd, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(showpass)
+                .addComponent(showpwd)
                 .addContainerGap())
         );
-        passPanelLayout.setVerticalGroup(
-            passPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(passPanelLayout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(passPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showpass))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showpwd))
                 .addContainerGap())
         );
+
+        pseudo.setFont(new java.awt.Font("Adobe Hebrew", 0, 18)); // NOI18N
+        pseudo.setForeground(new java.awt.Color(204, 0, 0));
+        pseudo.setText("Pseudo");
+        pseudo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pseudo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pseudoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pseudoFocusLost(evt);
+            }
+        });
+        pseudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pseudoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -233,14 +231,15 @@ setIconImage(image);
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(iddoc))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(23, 23, 23))
+                        .addComponent(jLabel5))
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(pseudo))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(login)
@@ -257,15 +256,15 @@ setIconImage(image);
                 .addComponent(jLabel1)
                 .addGap(62, 62, 62)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(iddoc, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                        .addComponent(jLabel5)
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(pseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
                 .addComponent(login)
                 .addContainerGap(61, Short.MAX_VALUE))
         );
@@ -304,18 +303,6 @@ setIconImage(image);
         new Accueil().setVisible(true);
     }//GEN-LAST:event_home3MouseClicked
 
-    private void iddocFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_iddocFocusGained
-        iddoc.setText("");
-    }//GEN-LAST:event_iddocFocusGained
-
-    private void iddocFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_iddocFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iddocFocusLost
-
-    private void iddocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddocActionPerformed
-        iddoc.setText("");
-    }//GEN-LAST:event_iddocActionPerformed
-
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 
         Connection connection;
@@ -331,8 +318,8 @@ setIconImage(image);
             stat.setQueryTimeout(30);
             String query ="select * from doctor where pseudo=? and password=?";
             PreparedStatement statement1 = connection.prepareStatement(query);
-            statement1.setString(1, iddoc.getText());
-            statement1.setString(2, pass.getText());
+            statement1.setString(1, pseudo.getText());
+            statement1.setString(2, pwd.getText());
             ResultSet rs = statement1.executeQuery();
             int count = 0;
             while(rs.next()) {
@@ -359,18 +346,30 @@ setIconImage(image);
         }
     }//GEN-LAST:event_loginActionPerformed
 
-    private void passFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFocusGained
-        pass.setText("");
-    }//GEN-LAST:event_passFocusGained
+    private void pwdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdFocusGained
+        pwd.setText("");
+    }//GEN-LAST:event_pwdFocusGained
 
-    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
-        if(showpass.getText().equals("Show")){
-            pass.setEchoChar((char)0);
-            showpass.setText("hide");
+    private void showpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpwdActionPerformed
+        if(showpwd.getText().equals("Show")){
+            pwd.setEchoChar((char)0);
+            showpwd.setText("hide");
         }
-        else{pass.setEchoChar('*');
-            showpass.setText("Show");}
-    }//GEN-LAST:event_showpassActionPerformed
+        else{pwd.setEchoChar('*');
+            showpwd.setText("Show");}
+    }//GEN-LAST:event_showpwdActionPerformed
+
+    private void pseudoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pseudoFocusGained
+        pseudo.setText("");
+    }//GEN-LAST:event_pseudoFocusGained
+
+    private void pseudoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pseudoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pseudoFocusLost
+
+    private void pseudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pseudoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pseudoActionPerformed
 
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {                                     
@@ -415,7 +414,6 @@ setIconImage(image);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel home3;
-    private javax.swing.JTextField iddoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -425,9 +423,10 @@ setIconImage(image);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JPanel passPanel;
-    private javax.swing.JButton showpass;
+    private javax.swing.JTextField pseudo;
+    private javax.swing.JPasswordField pwd;
+    private javax.swing.JButton showpwd;
     // End of variables declaration//GEN-END:variables
 }

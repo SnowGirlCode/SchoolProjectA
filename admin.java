@@ -195,7 +195,7 @@ setIconImage(image);
 
         jLabel4.setFont(new java.awt.Font("A Gentle Touch", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Gestion de la Maternité");
+        jLabel4.setText("Gestion de Maternité");
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\return-button (1).png")); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,7 +205,7 @@ setIconImage(image);
         });
 
         jLabel6.setFont(new java.awt.Font("BonvenoCF", 0, 24)); // NOI18N
-        jLabel6.setText("Admin Login Panel");
+        jLabel6.setText("Admin: Panneau de connexion");
 
         home1.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\home.png")); // NOI18N
         home1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,13 +221,13 @@ setIconImage(image);
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(home1)
-                .addGap(348, 348, 348))
+                .addGap(305, 305, 305))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(92, 92, 92)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -253,7 +253,7 @@ setIconImage(image);
                 .addGap(82, 82, 82)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 609, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,7 +380,7 @@ setIconImage(image);
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel1MouseDragged
 
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
          xx = evt.getX();
         xy = evt.getY();
