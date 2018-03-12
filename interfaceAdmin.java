@@ -1849,7 +1849,7 @@ updateReceptPanel.setVisible(false);
     }//GEN-LAST:event_DocButFocusGained
 
     private void medButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medButMousePressed
-new GererMedicaments().setVisible(true);
+new gerermed().setVisible(true);
         
         setColor(medBut);
         resetColor(chefBut);
