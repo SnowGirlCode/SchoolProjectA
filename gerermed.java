@@ -14,6 +14,9 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -35,6 +38,8 @@ Connection con=null;
     public gerermed() {
         initComponents();
           showTableData();
+          périmé();
+          
          Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 Image image = new ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\hopi2.png").getImage();
@@ -60,6 +65,7 @@ alert.setVisible(false);
         jPanel1 = new javax.swing.JPanel();
         InterPanel = new javax.swing.JPanel();
         interLabel = new javax.swing.JLabel();
+        logout = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         adminLogo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -90,8 +96,13 @@ alert.setVisible(false);
         delete_button = new javax.swing.JToggleButton();
         update_button = new javax.swing.JToggleButton();
         alert = new javax.swing.JLabel();
+        qte_min_label = new javax.swing.JLabel();
+        qte_icon1 = new javax.swing.JLabel();
+        qte_min_slider = new javax.swing.JSlider();
+        qte_min_spinner = new javax.swing.JSpinner();
+        jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
@@ -99,12 +110,22 @@ alert.setVisible(false);
         jPanel1.setAlignmentY(0.0F);
         jPanel1.setPreferredSize(new java.awt.Dimension(1350, 702));
 
-        InterPanel.setBackground(new java.awt.Color(0, 119, 135));
+        InterPanel.setBackground(new java.awt.Color(74, 173, 173));
         InterPanel.setPreferredSize(new java.awt.Dimension(800, 89));
 
         interLabel.setFont(new java.awt.Font("A Gentle Touch", 1, 36)); // NOI18N
         interLabel.setForeground(new java.awt.Color(255, 255, 255));
         interLabel.setText("Gestion de médicaments");
+
+        logout.setFont(new java.awt.Font("Lucida Bright", 1, 18)); // NOI18N
+        logout.setForeground(new java.awt.Color(74, 173, 173));
+        logout.setText("Logout");
+        logout.setMargin(new java.awt.Insets(2, 5, 2, 5));
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InterPanelLayout = new javax.swing.GroupLayout(InterPanel);
         InterPanel.setLayout(InterPanelLayout);
@@ -113,24 +134,29 @@ alert.setVisible(false);
             .addGroup(InterPanelLayout.createSequentialGroup()
                 .addGap(266, 266, 266)
                 .addComponent(interLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         InterPanelLayout.setVerticalGroup(
             InterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InterPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(interLabel)
+                .addGroup(InterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(interLabel))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_30px.png"))); // NOI18N
+        jLabel5.setToolTipText("Fermer");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel5MousePressed(evt);
             }
         });
 
-        adminLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fac2_1.png"))); // NOI18N
+        adminLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pharmacien.png"))); // NOI18N
 
         jScrollPane1.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -221,7 +247,7 @@ alert.setVisible(false);
 
         date_field.setForeground(new java.awt.Color(0, 51, 51));
         date_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        date_field.setText("00/00/00");
+        date_field.setText("aa/mm/jj");
         date_field.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 date_fieldFocusGained(evt);
@@ -266,7 +292,7 @@ alert.setVisible(false);
 
         add_button.setBackground(new java.awt.Color(255, 255, 255));
         add_button.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        add_button.setForeground(new java.awt.Color(0, 119, 135));
+        add_button.setForeground(new java.awt.Color(74, 173, 173));
         add_button.setText("Ajouter");
         add_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,7 +302,7 @@ alert.setVisible(false);
 
         cancel_button.setBackground(new java.awt.Color(255, 255, 255));
         cancel_button.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        cancel_button.setForeground(new java.awt.Color(0, 119, 135));
+        cancel_button.setForeground(new java.awt.Color(74, 173, 173));
         cancel_button.setText("Annuler");
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +324,7 @@ alert.setVisible(false);
         date_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Expired_20px.png"))); // NOI18N
 
         action_label.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        action_label.setForeground(new java.awt.Color(0, 119, 135));
+        action_label.setForeground(new java.awt.Color(74, 173, 173));
         action_label.setText("Choisissez l'action à effectuer:");
 
         jSeparator1.setForeground(new java.awt.Color(0, 119, 135));
@@ -313,7 +339,7 @@ alert.setVisible(false);
 
         delete_button.setBackground(new java.awt.Color(255, 255, 255));
         delete_button.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        delete_button.setForeground(new java.awt.Color(0, 119, 135));
+        delete_button.setForeground(new java.awt.Color(74, 173, 173));
         delete_button.setText("Supprimer");
         delete_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,7 +349,7 @@ alert.setVisible(false);
 
         update_button.setBackground(new java.awt.Color(255, 255, 255));
         update_button.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        update_button.setForeground(new java.awt.Color(0, 119, 135));
+        update_button.setForeground(new java.awt.Color(74, 173, 173));
         update_button.setText("Modifier");
         update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,10 +361,47 @@ alert.setVisible(false);
         alert.setForeground(new java.awt.Color(204, 0, 51));
         alert.setText("*Sélectionnez la ligne à modifier dans le tableau suivant ->");
 
+        qte_min_label.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        qte_min_label.setText("Quantité minimale:");
+
+        qte_icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Purchase_Order_20px.png"))); // NOI18N
+
+        qte_slider.setMaximum(1000);
+        qte_min_slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                qte_min_sliderStateChanged(evt);
+            }
+        });
+        qte_min_slider.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                qte_min_sliderKeyPressed(evt);
+            }
+        });
+
+        qte_min_spinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                qte_min_spinnerStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout Form_PanelLayout = new javax.swing.GroupLayout(Form_Panel);
         Form_Panel.setLayout(Form_PanelLayout);
         Form_PanelLayout.setHorizontalGroup(
             Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Form_PanelLayout.createSequentialGroup()
+                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Form_PanelLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(action_label, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                            .addComponent(jSeparator1)
+                            .addGroup(Form_PanelLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Form_PanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(alert)))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(Form_PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,21 +453,15 @@ alert.setVisible(false);
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(prix_field, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(date_field, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
-            .addGroup(Form_PanelLayout.createSequentialGroup()
-                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Form_PanelLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(action_label, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                            .addComponent(jSeparator1)
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(combo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(Form_PanelLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(alert)))
-                .addGap(0, 24, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
+                        .addComponent(qte_icon1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(qte_min_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(qte_min_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(qte_min_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
                     .addContainerGap(182, Short.MAX_VALUE)
@@ -439,6 +496,13 @@ alert.setVisible(false);
                         .addComponent(qte_label, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(qte_spinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(qte_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(qte_icon1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(qte_min_label, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(qte_min_spinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(qte_min_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -457,7 +521,7 @@ alert.setVisible(false);
                         .addComponent(date_icon, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(date_label))
                     .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66)
+                .addGap(30, 30, 30)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_button)
                     .addComponent(cancel_button))
@@ -474,6 +538,14 @@ alert.setVisible(false);
                     .addGap(40, 40, 40)))
         );
 
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Subtract_30px_1.png"))); // NOI18N
+        jLabel15.setToolTipText("Réduire");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel15MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -485,9 +557,11 @@ alert.setVisible(false);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(adminLogo)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                    .addComponent(InterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -499,7 +573,9 @@ alert.setVisible(false);
                         .addGap(6, 6, 6)
                         .addComponent(adminLogo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -540,6 +616,7 @@ alert.setVisible(false);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+        Toolkit.getDefaultToolkit().beep();
         int confirmed = JOptionPane.showConfirmDialog(null,
             "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
             JOptionPane.YES_NO_OPTION);
@@ -603,6 +680,8 @@ public void clear(){
     dosage_slider.setValue(0);
     qte_spinner.setValue(0);
     qte_slider.setValue(0);
+    qte_min_spinner.setValue(0);
+    qte_min_slider.setValue(0);
     prix_field.setText("");
     date_field.setText("00/00/00");
 }
@@ -610,15 +689,18 @@ public void showTableData(){
     try{
         
       con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_med","root","mysql");
-      String sql = "SELECT nom, quantité, dosage, prix, date_peremp FROM med";
+      String sql = "SELECT nom, quantité, dosage, prix, date_peremp, quantite_min FROM med";
       pat = con.prepareStatement(sql);
       ra = pat.executeQuery();
       
     med_details1.setModel(DbUtils.resultSetToTableModel(ra));
+    MedInsuffisant();
+    périmé();
     }
     catch (Exception ex){
           JOptionPane.showMessageDialog(null, ex);
     }
+    
 }/*
     private void name_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_fieldActionPerformed
 name_field.setText("");
@@ -629,8 +711,8 @@ name_field.setText("");
         try{
               
             String sql="INSERT INTO `med`"
-            + "(`nom`, `quantité`, `dosage`,`prix`, `date_peremp`)"
-            + " VALUES (?,?,?,?,?)";
+            + "(`nom`, `quantité`, `dosage`,`prix`, `date_peremp`, `quantite_min`)"
+            + " VALUES (?,?,?,?,?,?)";
             con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_med","root","mysql");
             pat = con.prepareStatement(sql);
             pat.setString(1,name_field.getText());
@@ -638,6 +720,7 @@ name_field.setText("");
             pat.setInt(3, (int) dosage_spinner.getValue());
             pat.setString(4,prix_field.getText());
             pat.setString(5,date_field.getText());
+            pat.setInt(6,(int) qte_min_spinner.getValue());
             pat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Le médicament a été ajouté");
         }
@@ -646,6 +729,7 @@ name_field.setText("");
 
         }
         showTableData();
+        
         clear();
     }//GEN-LAST:event_add_buttonActionPerformed
 
@@ -695,6 +779,7 @@ name_field.setText("");
 
         }
         showTableData();
+        
         clear();
     }//GEN-LAST:event_delete_buttonActionPerformed
 
@@ -702,17 +787,18 @@ name_field.setText("");
         try{
              
 
-            String sql="UPDATE med SET nom=?,quantité=?,dosage=?,prix=?,date_peremp=? WHERE nom=?";
+            String sql="UPDATE med SET nom=?,quantité=?,dosage=?,prix=?,date_peremp=?,quantite_min=? WHERE nom=?";
 
             con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_med","root","mysql");
             pat = con.prepareStatement(sql);
 
             pat.setString(1,name_field.getText());
             pat.setInt(2, (int) qte_spinner.getValue());
+            pat.setInt(6, (int) qte_min_spinner.getValue());
             pat.setInt(3, (int) dosage_spinner.getValue());
             pat.setString(4,prix_field.getText());
             pat.setString(5,date_field.getText());
-            pat.setString(6,name_field.getText());
+            pat.setString(7,name_field.getText());
             pat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Le médicament a été modifié!");
 
@@ -723,6 +809,7 @@ name_field.setText("");
         }
         clear();
         showTableData();
+   
     }//GEN-LAST:event_update_buttonActionPerformed
 
     private void qte_sliderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qte_sliderKeyPressed
@@ -775,8 +862,95 @@ date_field.setText("");        // TODO add your handling code here:
         dosage_slider.setValue((int) model.getValueAt(index,2));
         prix_field.setText(model.getValueAt(index,3).toString());
         date_field.setText(model.getValueAt(index,4).toString());
+         qte_min_slider.setValue((int) model.getValueAt(index,5));
+         qte_min_spinner.setValue(model.getValueAt(index,5));
     }//GEN-LAST:event_med_details1MouseClicked
 
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+Toolkit.getDefaultToolkit().beep();
+        int confirmed = JOptionPane.showConfirmDialog(null,
+            "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
+            JOptionPane.YES_NO_OPTION);
+
+        if (confirmed == JOptionPane.YES_OPTION) {
+            dispose();
+        }      // TODO add your handling code here
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void qte_min_sliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_qte_min_sliderStateChanged
+qte_min_spinner.setValue((int) qte_min_slider.getValue());
+
+    }//GEN-LAST:event_qte_min_sliderStateChanged
+
+    private void qte_min_sliderKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qte_min_sliderKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_qte_min_sliderKeyPressed
+
+    private void qte_min_spinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_qte_min_spinnerStateChanged
+qte_min_slider.setValue((int) qte_min_spinner.getValue());
+    }//GEN-LAST:event_qte_min_spinnerStateChanged
+
+    private void jLabel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MousePressed
+        setExtendedState(this.ICONIFIED);
+    }//GEN-LAST:event_jLabel15MousePressed
+private void périmé()
+{
+    String warningMsg="";
+try
+{
+    
+	Calendar cal = Calendar.getInstance();
+   con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_med","root","mysql");
+      String sql = "SELECT nom, date_peremp FROM med";
+      pat = con.prepareStatement(sql);
+      ra = pat.executeQuery();
+      while (ra.next()) {
+    Date datePeremp = ra.getDate("date_peremp");
+    //Date date3=(Date) datePeremp;
+    String nom = ra.getString("nom");
+if(  (cal.getTime()).after(datePeremp))
+    {
+        warningMsg += " "+nom+";";
+    }
+    
+      }
+     Toolkit.getDefaultToolkit().beep();
+     JOptionPane.showMessageDialog(this, "Medicament(s) périmé(s):"+warningMsg, "Dialogue",
+        JOptionPane.ERROR_MESSAGE);
+    }
+    catch (Exception ex){
+          JOptionPane.showMessageDialog(null, ex);
+    }
+
+}
+        private void MedInsuffisant()
+{
+    
+     try{
+        
+      con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_med","root","mysql");
+      String sql = "SELECT nom, quantité, quantite_min FROM med";
+      pat = con.prepareStatement(sql);
+      ra = pat.executeQuery();
+      while (ra.next()) {
+    int qte = ra.getInt("quantité");
+    int qte_min = ra.getInt("quantite_min");
+    String nom = ra.getString("nom");
+    if(qte<=qte_min)
+    {
+        Toolkit.getDefaultToolkit().beep();
+        String warningMsg = "La quantité du "+nom+" est insuffisante!";
+        JOptionPane.showMessageDialog(this, warningMsg, "Dialogue",
+        JOptionPane.ERROR_MESSAGE);
+         
+    }
+    
+      }
+    }
+    catch (Exception ex){
+          JOptionPane.showMessageDialog(null, ex);
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -830,10 +1004,12 @@ date_field.setText("");        // TODO add your handling code here:
     private javax.swing.JSpinner dosage_spinner;
     private javax.swing.JLabel dose_icon;
     private javax.swing.JLabel interLabel;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton logout;
     private javax.swing.JTable med_details1;
     private javax.swing.JTextField name_field;
     private javax.swing.JLabel name_label;
@@ -842,7 +1018,11 @@ date_field.setText("");        // TODO add your handling code here:
     private javax.swing.JTextField prix_field;
     private javax.swing.JLabel prix_label;
     private javax.swing.JLabel qte_icon;
+    private javax.swing.JLabel qte_icon1;
     private javax.swing.JLabel qte_label;
+    private javax.swing.JLabel qte_min_label;
+    private javax.swing.JSlider qte_min_slider;
+    private javax.swing.JSpinner qte_min_spinner;
     private javax.swing.JSlider qte_slider;
     private javax.swing.JSpinner qte_spinner;
     private javax.swing.JToggleButton update_button;

@@ -39,7 +39,9 @@ setIconImage(image);
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         secretaryLabel = new javax.swing.JLabel();
         doc = new javax.swing.JButton();
@@ -53,15 +55,67 @@ setIconImage(image);
         recept = new javax.swing.JButton();
         admin = new javax.swing.JButton();
         adminLabel = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        inferm = new javax.swing.JButton();
+        infermLabel = new javax.swing.JLabel();
+        pharm = new javax.swing.JButton();
+        pharmLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel1.setBackground(new java.awt.Color(255, 247, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\bannermater475.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_30px_2.png"))); // NOI18N
+        jLabel3.setToolTipText("Fermer");
+        jLabel3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLabel3FocusGained(evt);
+            }
+        });
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bannerMainFinal.jpg"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Subtract_30px.png"))); // NOI18N
+        jLabel4.setToolTipText("Réduire");
+        jLabel4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLabel4FocusGained(evt);
+            }
+        });
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel4)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1)))
+        );
 
         jPanel3.setBackground(new java.awt.Color(204, 0, 0));
 
@@ -146,174 +200,150 @@ setIconImage(image);
         adminLabel.setForeground(new java.awt.Color(255, 255, 255));
         adminLabel.setText("Administrateur");
 
+        inferm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inferm.png"))); // NOI18N
+        inferm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infermActionPerformed(evt);
+            }
+        });
+
+        infermLabel.setFont(new java.awt.Font("Adobe Garamond Pro Bold", 0, 24)); // NOI18N
+        infermLabel.setForeground(new java.awt.Color(255, 255, 255));
+        infermLabel.setText("Infermière");
+
+        pharm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pharmacien.png"))); // NOI18N
+        pharm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pharmActionPerformed(evt);
+            }
+        });
+
+        pharmLabel2.setFont(new java.awt.Font("Adobe Garamond Pro Bold", 0, 24)); // NOI18N
+        pharmLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        pharmLabel2.setText(" Pharmacien");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(logout)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(chefServ)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(doc))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(chefServ)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(doc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(adminLabel)
+                                    .addComponent(admin)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(chefLabel)
+                                .addGap(62, 62, 62)
+                                .addComponent(docLabel)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sageFemme)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(recept, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inferm, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(nurseLabel)
+                                .addGap(27, 27, 27)
+                                .addComponent(secretaryLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(infermLabel)
+                                .addGap(33, 33, 33)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pharm, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(pharmLabel2)
+                                .addGap(25, 25, 25))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(chefLabel)
-                        .addGap(68, 68, 68)
-                        .addComponent(docLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(admin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sageFemme))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(adminLabel)
-                        .addGap(35, 35, 35)
-                        .addComponent(nurseLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(secretaryLabel))
-                    .addComponent(recept, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(364, 364, 364)
+                        .addComponent(logout)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2))
+                    .addComponent(logout))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(recept, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(132, 132, 132))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(doc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(sageFemme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(recept, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(chefServ, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                                    .addComponent(admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(inferm, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(adminLabel)
-                                .addComponent(nurseLabel)
-                                .addComponent(secretaryLabel))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(chefLabel)
-                                .addComponent(docLabel))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(docLabel)
+                                    .addComponent(adminLabel)
+                                    .addComponent(nurseLabel)
+                                    .addComponent(secretaryLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(infermLabel)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addComponent(chefServ)
+                        .addGap(18, 18, 18)
+                        .addComponent(chefLabel)
+                        .addGap(88, 88, 88))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logout)))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_30px_2.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pharm, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pharmLabel2)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//GEN-FIRST:event_receptActionPerformed
- 
-//GEN-LAST:event_receptActionPerformed
-
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-dispose();
-    }//GEN-LAST:event_logoutMouseClicked
-
-    private void chefServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chefServActionPerformed
-new chefservice().setVisible(true);
-    }//GEN-LAST:event_chefServActionPerformed
-
-    private void chefLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chefLabelKeyPressed
-
-    }//GEN-LAST:event_chefLabelKeyPressed
-
-    private void chefLabelAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_chefLabelAncestorRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chefLabelAncestorRemoved
-
-    private void chefLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_chefLabelAncestorAdded
-
-    }//GEN-LAST:event_chefLabelAncestorAdded
-
-    private void sageFemmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sageFemmeActionPerformed
-        new sagefemme().setVisible(true);
-    }//GEN-LAST:event_sageFemmeActionPerformed
-
-    private void docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docActionPerformed
-        new docteur().setVisible(true);
-    }//GEN-LAST:event_docActionPerformed
-
-    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
-new admin().setVisible(true);
-    }//GEN-LAST:event_adminActionPerformed
-/*
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-dispose();    }//GEN-LAST:event_jLabel3MousePressed
-
-    */
+   
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt){
-                                            
-int confirmed = JOptionPane.showConfirmDialog(null, 
+      Toolkit.getDefaultToolkit().beep();                                       
+        int confirmed = JOptionPane.showConfirmDialog(null, 
         "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
         JOptionPane.YES_NO_OPTION);
 
@@ -333,6 +363,68 @@ int confirmed = JOptionPane.showConfirmDialog(null,
         int y = evt.getYOnScreen();
         this.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel1MouseDragged
+
+/*
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+
+    }//GEN-LAST:event_jLabel3MousePressed
+*/
+    private void infermActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infermActionPerformed
+new infermiere().setVisible(true);
+    }//GEN-LAST:event_infermActionPerformed
+
+    private void adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminActionPerformed
+        new admin().setVisible(true);
+    }//GEN-LAST:event_adminActionPerformed
+/*
+    private void receptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receptActionPerformed
+
+    }//GEN-LAST:event_receptActionPerformed
+*/
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        dispose();
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void chefServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chefServActionPerformed
+        new chefservice().setVisible(true);
+    }//GEN-LAST:event_chefServActionPerformed
+
+    private void chefLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chefLabelKeyPressed
+
+    }//GEN-LAST:event_chefLabelKeyPressed
+
+    private void chefLabelAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_chefLabelAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chefLabelAncestorRemoved
+
+    private void chefLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_chefLabelAncestorAdded
+
+    }//GEN-LAST:event_chefLabelAncestorAdded
+
+    private void sageFemmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sageFemmeActionPerformed
+        new sagefemme().setVisible(true);
+    }//GEN-LAST:event_sageFemmeActionPerformed
+
+    private void docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docActionPerformed
+        new Doctor().setVisible(true);
+    }//GEN-LAST:event_docActionPerformed
+
+    private void pharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmActionPerformed
+new pharmacist().setVisible(true);      
+
+    }//GEN-LAST:event_pharmActionPerformed
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+setExtendedState(this.ICONIFIED);
+    }//GEN-LAST:event_jLabel4MousePressed
+
+    private void jLabel3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel3FocusGained
+jLabel3.setToolTipText("Fermer");      
+    }//GEN-LAST:event_jLabel3FocusGained
+
+    private void jLabel4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel4FocusGained
+jLabel4.setToolTipText("Fermer");  
+    }//GEN-LAST:event_jLabel4FocusGained
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {                                     
         // TODO add your handling code here:
@@ -381,13 +473,18 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JButton chefServ;
     private javax.swing.JButton doc;
     private javax.swing.JLabel docLabel;
+    private javax.swing.JButton inferm;
+    private javax.swing.JLabel infermLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel nurseLabel;
+    private javax.swing.JButton pharm;
+    private javax.swing.JLabel pharmLabel2;
     private javax.swing.JButton recept;
     private javax.swing.JButton sageFemme;
     private javax.swing.JLabel secretaryLabel;

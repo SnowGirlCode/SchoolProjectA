@@ -314,7 +314,7 @@ setIconImage(image);
 
             stat = connection.createStatement();
             stat.setQueryTimeout(30);
-            String query ="select * from chef_service where pseudo=? and password=?";
+            String query ="select pseudo, password from chef_service where pseudo=? and password=?";
             PreparedStatement statement1 = connection.prepareStatement(query);
             statement1.setString(1, pseudo.getText());
             statement1.setString(2, pwd.getText());

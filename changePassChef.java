@@ -67,8 +67,6 @@ setIconImage(image);
         setLocationByPlatform(true);
         setUndecorated(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jPanel2.setBackground(new java.awt.Color(67, 31, 148));
 
         jLabel1.setFont(new java.awt.Font("A Gentle Touch", 1, 36)); // NOI18N
@@ -321,6 +319,7 @@ setIconImage(image);
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_30px_3.png"))); // NOI18N
+        jLabel5.setToolTipText("Fermer");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel5MousePressed(evt);
@@ -336,7 +335,7 @@ setIconImage(image);
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel5))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
@@ -421,7 +420,7 @@ Connection connection;
             {
                 
                 Statement st1 = connection.createStatement();
-                st1.executeUpdate("UPDATE chef_service SET password='newpass' where pseudo='Utilisateur'");
+                st1.executeUpdate("UPDATE chef_service SET password=`newpass` where pseudo=`Utilisateur`");
                 JOptionPane.showMessageDialog(null, "PASSWORD UPDATED SUCCESSFULLY");
 
             }
@@ -539,18 +538,12 @@ int xy;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JButton login;
     private javax.swing.JTextField pseudoch;
     private javax.swing.JPasswordField pwd;
-    private javax.swing.JPasswordField pwd1;
-    private javax.swing.JPasswordField pwd2;
     private javax.swing.JPasswordField pwd3;
     private javax.swing.JButton showpwd;
-    private javax.swing.JButton showpwd1;
-    private javax.swing.JButton showpwd2;
     private javax.swing.JButton showpwd3;
     // End of variables declaration//GEN-END:variables
 }

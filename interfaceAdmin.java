@@ -31,10 +31,10 @@ setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().heig
         Image image = new ImageIcon("D:\\5.Etude\\3rd Year Licence\\Projet de fin d'etude\\icones\\hopi2.png").getImage();
 setIconImage(image);
 //
-deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
+deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
 //
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
@@ -55,6 +55,11 @@ deleteReceptPanel.setVisible(false);
 infoReceptPanel.setVisible(false);
 addReceptPanel.setVisible(false);
 updateReceptPanel.setVisible(false);
+///
+deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);
     }
 
     /**
@@ -90,27 +95,27 @@ updateReceptPanel.setVisible(false);
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         ind_recept = new javax.swing.JPanel();
-        patientBut = new javax.swing.JPanel();
+        InfermierBut = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         ind_pati = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        medBut = new javax.swing.JPanel();
+        PharmBut = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        ind_med = new javax.swing.JPanel();
-        addPatientPanel = new javax.swing.JPanel();
-        AddPatientLabel = new javax.swing.JLabel();
-        addPatientPic = new javax.swing.JLabel();
-        deletePatientPanel = new javax.swing.JPanel();
-        deletePatientLabel = new javax.swing.JLabel();
-        deletePatientPic = new javax.swing.JLabel();
-        updatePatientPanel = new javax.swing.JPanel();
-        updatePatientLabel = new javax.swing.JLabel();
-        updatePatientPic = new javax.swing.JLabel();
-        infoPatientPanel = new javax.swing.JPanel();
-        infoPatientLabel = new javax.swing.JLabel();
-        infoPatientPic = new javax.swing.JLabel();
+        ind_Pharm = new javax.swing.JPanel();
+        addInfermierPanel = new javax.swing.JPanel();
+        AddInfermierLabel = new javax.swing.JLabel();
+        addInfermierPic = new javax.swing.JLabel();
+        deleteInfermierPanel = new javax.swing.JPanel();
+        deleteInfermierLabel = new javax.swing.JLabel();
+        deleteInfermierPic = new javax.swing.JLabel();
+        updateInfermierPanel = new javax.swing.JPanel();
+        updateInfermierLabel = new javax.swing.JLabel();
+        updateInfermierPic = new javax.swing.JLabel();
+        infoInfermierPanel = new javax.swing.JPanel();
+        infoInfermierLabel = new javax.swing.JLabel();
+        infoInfermierPic = new javax.swing.JLabel();
         addDoctorPanel = new javax.swing.JPanel();
         AddDoctorLabel = new javax.swing.JLabel();
         addDoctorPic1 = new javax.swing.JLabel();
@@ -160,12 +165,24 @@ updateReceptPanel.setVisible(false);
         infoReceptLabel = new javax.swing.JLabel();
         infoReceptPic = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        addPharmPanel = new javax.swing.JPanel();
+        addPharmLabel = new javax.swing.JLabel();
+        addPharmtPic = new javax.swing.JLabel();
+        deletePharmPanel = new javax.swing.JPanel();
+        deletePharmLabel = new javax.swing.JLabel();
+        deletePharmPic = new javax.swing.JLabel();
+        infoPharmPanel = new javax.swing.JPanel();
+        infoPharmLabel = new javax.swing.JLabel();
+        infoPharmPic = new javax.swing.JLabel();
+        updatePharmPanel = new javax.swing.JPanel();
+        updatePharmLabel = new javax.swing.JLabel();
+        updatePharmPic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(968, 600));
 
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
@@ -367,7 +384,7 @@ updateReceptPanel.setVisible(false);
                 .addComponent(ind_chef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -383,6 +400,9 @@ updateReceptPanel.setVisible(false);
 
         receptBut.setBackground(new java.awt.Color(0, 119, 135));
         receptBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                receptButMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 receptButMousePressed(evt);
             }
@@ -417,7 +437,7 @@ updateReceptPanel.setVisible(false);
                 .addComponent(ind_recept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -431,18 +451,18 @@ updateReceptPanel.setVisible(false);
                     .addComponent(jLabel9)))
         );
 
-        patientBut.setBackground(new java.awt.Color(0, 119, 135));
-        patientBut.addMouseListener(new java.awt.event.MouseAdapter() {
+        InfermierBut.setBackground(new java.awt.Color(0, 119, 135));
+        InfermierBut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                patientButMousePressed(evt);
+                InfermierButMousePressed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Gérer les Patientes");
+        jLabel13.setText("Gérer les Infermières");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Pregnant_25px.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Nurse_20px_5.png"))); // NOI18N
 
         ind_pati.setBackground(new java.awt.Color(250, 250, 250));
         ind_pati.setOpaque(false);
@@ -459,76 +479,79 @@ updateReceptPanel.setVisible(false);
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout patientButLayout = new javax.swing.GroupLayout(patientBut);
-        patientBut.setLayout(patientButLayout);
-        patientButLayout.setHorizontalGroup(
-            patientButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patientButLayout.createSequentialGroup()
+        javax.swing.GroupLayout InfermierButLayout = new javax.swing.GroupLayout(InfermierBut);
+        InfermierBut.setLayout(InfermierButLayout);
+        InfermierButLayout.setHorizontalGroup(
+            InfermierButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfermierButLayout.createSequentialGroup()
                 .addComponent(ind_pati, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
-        patientButLayout.setVerticalGroup(
-            patientButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        InfermierButLayout.setVerticalGroup(
+            InfermierButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(ind_pati, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(patientButLayout.createSequentialGroup()
+            .addGroup(InfermierButLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(patientButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(InfermierButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
                     .addComponent(jLabel13)))
         );
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/hospital_icon-icons.com_76234.png"))); // NOI18N
 
-        medBut.setBackground(new java.awt.Color(0, 119, 135));
-        medBut.addMouseListener(new java.awt.event.MouseAdapter() {
+        PharmBut.setBackground(new java.awt.Color(0, 119, 135));
+        PharmBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PharmButMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                medButMousePressed(evt);
+                PharmButMousePressed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Gérer les Médicamentss");
+        jLabel11.setText("Gérer les pharmaciens");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Doctors_Bag_20px_2.png"))); // NOI18N
 
-        ind_med.setBackground(new java.awt.Color(250, 250, 250));
-        ind_med.setOpaque(false);
-        ind_med.setPreferredSize(new java.awt.Dimension(4, 43));
+        ind_Pharm.setBackground(new java.awt.Color(250, 250, 250));
+        ind_Pharm.setOpaque(false);
+        ind_Pharm.setPreferredSize(new java.awt.Dimension(4, 43));
 
-        javax.swing.GroupLayout ind_medLayout = new javax.swing.GroupLayout(ind_med);
-        ind_med.setLayout(ind_medLayout);
-        ind_medLayout.setHorizontalGroup(
-            ind_medLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ind_PharmLayout = new javax.swing.GroupLayout(ind_Pharm);
+        ind_Pharm.setLayout(ind_PharmLayout);
+        ind_PharmLayout.setHorizontalGroup(
+            ind_PharmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 4, Short.MAX_VALUE)
         );
-        ind_medLayout.setVerticalGroup(
-            ind_medLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ind_PharmLayout.setVerticalGroup(
+            ind_PharmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout medButLayout = new javax.swing.GroupLayout(medBut);
-        medBut.setLayout(medButLayout);
-        medButLayout.setHorizontalGroup(
-            medButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(medButLayout.createSequentialGroup()
-                .addComponent(ind_med, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout PharmButLayout = new javax.swing.GroupLayout(PharmBut);
+        PharmBut.setLayout(PharmButLayout);
+        PharmButLayout.setHorizontalGroup(
+            PharmButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PharmButLayout.createSequentialGroup()
+                .addComponent(ind_Pharm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addGap(9, 9, 9)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel11)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        medButLayout.setVerticalGroup(
-            medButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ind_med, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(medButLayout.createSequentialGroup()
+        PharmButLayout.setVerticalGroup(
+            PharmButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_Pharm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(PharmButLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(medButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PharmButLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)))
         );
@@ -540,7 +563,7 @@ updateReceptPanel.setVisible(false);
             .addComponent(DocBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(chefBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(receptBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(patientBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(InfermierBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sideLayout.createSequentialGroup()
                 .addGroup(sideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sideLayout.createSequentialGroup()
@@ -553,7 +576,7 @@ updateReceptPanel.setVisible(false);
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
             .addComponent(nurseBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(medBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PharmBut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideLayout.setVerticalGroup(
             sideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,158 +596,159 @@ updateReceptPanel.setVisible(false);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(receptBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(patientBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InfermierBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(medBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PharmBut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        addPatientPanel.setBackground(new java.awt.Color(255, 255, 255));
-        addPatientPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        addInfermierPanel.setBackground(new java.awt.Color(255, 255, 255));
+        addInfermierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                addPatientPanelMousePressed(evt);
+                addInfermierPanelMousePressed(evt);
             }
         });
 
-        AddPatientLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        AddPatientLabel.setForeground(new java.awt.Color(0, 119, 135));
-        AddPatientLabel.setText("Ajouter Patiente");
+        AddInfermierLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        AddInfermierLabel.setForeground(new java.awt.Color(0, 119, 135));
+        AddInfermierLabel.setText("Ajouter une Infermière");
 
-        addPatientPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Add_User_Female_100px.png"))); // NOI18N
+        addInfermierPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Add_User_Female_96px.png"))); // NOI18N
 
-        javax.swing.GroupLayout addPatientPanelLayout = new javax.swing.GroupLayout(addPatientPanel);
-        addPatientPanel.setLayout(addPatientPanelLayout);
-        addPatientPanelLayout.setHorizontalGroup(
-            addPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addPatientPanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(addPatientPic)
+        javax.swing.GroupLayout addInfermierPanelLayout = new javax.swing.GroupLayout(addInfermierPanel);
+        addInfermierPanel.setLayout(addInfermierPanelLayout);
+        addInfermierPanelLayout.setHorizontalGroup(
+            addInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addInfermierPanelLayout.createSequentialGroup()
+                .addGroup(addInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addInfermierPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(AddInfermierLabel))
+                    .addGroup(addInfermierPanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(addInfermierPic)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPatientPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddPatientLabel)
-                .addGap(38, 38, 38))
         );
-        addPatientPanelLayout.setVerticalGroup(
-            addPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPatientPanelLayout.createSequentialGroup()
+        addInfermierPanelLayout.setVerticalGroup(
+            addInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addInfermierPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(addPatientPic)
+                .addComponent(addInfermierPic)
                 .addGap(18, 18, 18)
-                .addComponent(AddPatientLabel)
+                .addComponent(AddInfermierLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        deletePatientPanel.setBackground(new java.awt.Color(255, 255, 255));
-        deletePatientPanel.setMinimumSize(new java.awt.Dimension(100, 100));
-        deletePatientPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        deleteInfermierPanel.setBackground(new java.awt.Color(255, 255, 255));
+        deleteInfermierPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        deleteInfermierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                deletePatientPanelMousePressed(evt);
+                deleteInfermierPanelMousePressed(evt);
             }
         });
 
-        deletePatientLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        deletePatientLabel.setForeground(new java.awt.Color(0, 119, 135));
-        deletePatientLabel.setText("Supprimer Patiente");
+        deleteInfermierLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        deleteInfermierLabel.setForeground(new java.awt.Color(0, 119, 135));
+        deleteInfermierLabel.setText("Supprimer une infermière");
 
-        deletePatientPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete User Female_100px.png"))); // NOI18N
+        deleteInfermierPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Checked_User_Female_96px.png"))); // NOI18N
 
-        javax.swing.GroupLayout deletePatientPanelLayout = new javax.swing.GroupLayout(deletePatientPanel);
-        deletePatientPanel.setLayout(deletePatientPanelLayout);
-        deletePatientPanelLayout.setHorizontalGroup(
-            deletePatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deletePatientPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout deleteInfermierPanelLayout = new javax.swing.GroupLayout(deleteInfermierPanel);
+        deleteInfermierPanel.setLayout(deleteInfermierPanelLayout);
+        deleteInfermierPanelLayout.setHorizontalGroup(
+            deleteInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteInfermierPanelLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(deletePatientPic)
+                .addComponent(deleteInfermierPic)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePatientPanelLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(deletePatientLabel)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteInfermierPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteInfermierLabel)
                 .addGap(27, 27, 27))
         );
-        deletePatientPanelLayout.setVerticalGroup(
-            deletePatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePatientPanelLayout.createSequentialGroup()
+        deleteInfermierPanelLayout.setVerticalGroup(
+            deleteInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteInfermierPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(deletePatientPic)
+                .addComponent(deleteInfermierPic)
                 .addGap(18, 18, 18)
-                .addComponent(deletePatientLabel)
+                .addComponent(deleteInfermierLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        updatePatientPanel.setBackground(new java.awt.Color(255, 255, 255));
-        updatePatientPanel.setMinimumSize(new java.awt.Dimension(100, 100));
-        updatePatientPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        updateInfermierPanel.setBackground(new java.awt.Color(255, 255, 255));
+        updateInfermierPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        updateInfermierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                updatePatientPanelMousePressed(evt);
+                updateInfermierPanelMousePressed(evt);
             }
         });
 
-        updatePatientLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        updatePatientLabel.setForeground(new java.awt.Color(0, 119, 135));
-        updatePatientLabel.setText("Modifier  Patiente");
+        updateInfermierLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        updateInfermierLabel.setForeground(new java.awt.Color(0, 119, 135));
+        updateInfermierLabel.setText("Modifier  une infermière");
 
-        updatePatientPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Update_User_100px.png"))); // NOI18N
+        updateInfermierPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Update_User_80px.png"))); // NOI18N
 
-        javax.swing.GroupLayout updatePatientPanelLayout = new javax.swing.GroupLayout(updatePatientPanel);
-        updatePatientPanel.setLayout(updatePatientPanelLayout);
-        updatePatientPanelLayout.setHorizontalGroup(
-            updatePatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(updatePatientPanelLayout.createSequentialGroup()
-                .addGroup(updatePatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updatePatientPanelLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(updatePatientPic))
-                    .addGroup(updatePatientPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout updateInfermierPanelLayout = new javax.swing.GroupLayout(updateInfermierPanel);
+        updateInfermierPanel.setLayout(updateInfermierPanelLayout);
+        updateInfermierPanelLayout.setHorizontalGroup(
+            updateInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateInfermierPanelLayout.createSequentialGroup()
+                .addGroup(updateInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(updateInfermierPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(updatePatientLabel)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(updateInfermierLabel))
+                    .addGroup(updateInfermierPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(updateInfermierPic)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
-        updatePatientPanelLayout.setVerticalGroup(
-            updatePatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePatientPanelLayout.createSequentialGroup()
+        updateInfermierPanelLayout.setVerticalGroup(
+            updateInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateInfermierPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(updatePatientPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateInfermierPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(updatePatientLabel)
+                .addComponent(updateInfermierLabel)
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        infoPatientPanel.setBackground(new java.awt.Color(255, 255, 255));
-        infoPatientPanel.setMinimumSize(new java.awt.Dimension(100, 100));
-        infoPatientPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        infoInfermierPanel.setBackground(new java.awt.Color(255, 255, 255));
+        infoInfermierPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        infoInfermierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                infoPatientPanelMousePressed(evt);
+                infoInfermierPanelMousePressed(evt);
             }
         });
 
-        infoPatientLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
-        infoPatientLabel.setForeground(new java.awt.Color(0, 119, 135));
-        infoPatientLabel.setText("Details  de Patiente");
+        infoInfermierLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        infoInfermierLabel.setForeground(new java.awt.Color(0, 119, 135));
+        infoInfermierLabel.setText("Details  de l'infermière");
 
-        infoPatientPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_User_Menu_Female_100px.png"))); // NOI18N
+        infoInfermierPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_User_Menu_Female_96px.png"))); // NOI18N
 
-        javax.swing.GroupLayout infoPatientPanelLayout = new javax.swing.GroupLayout(infoPatientPanel);
-        infoPatientPanel.setLayout(infoPatientPanelLayout);
-        infoPatientPanelLayout.setHorizontalGroup(
-            infoPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoPatientPanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(infoPatientPic)
-                .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPatientPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(infoPatientLabel)
-                .addGap(32, 32, 32))
+        javax.swing.GroupLayout infoInfermierPanelLayout = new javax.swing.GroupLayout(infoInfermierPanel);
+        infoInfermierPanel.setLayout(infoInfermierPanelLayout);
+        infoInfermierPanelLayout.setHorizontalGroup(
+            infoInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoInfermierPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(infoInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoInfermierPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(infoInfermierPic))
+                    .addComponent(infoInfermierLabel))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
-        infoPatientPanelLayout.setVerticalGroup(
-            infoPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPatientPanelLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(infoPatientPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(infoPatientLabel)
-                .addContainerGap(12, Short.MAX_VALUE))
+        infoInfermierPanelLayout.setVerticalGroup(
+            infoInfermierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoInfermierPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(infoInfermierPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoInfermierLabel)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         addDoctorPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -1307,7 +1331,7 @@ updateReceptPanel.setVisible(false);
             .addGroup(infoReceptPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(infoReceptLabel)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(2, Short.MAX_VALUE))
         );
         infoReceptPanelLayout.setVerticalGroup(
             infoReceptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1320,11 +1344,171 @@ updateReceptPanel.setVisible(false);
         );
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_30px.png"))); // NOI18N
+        jLabel5.setToolTipText("Fermer");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel5MousePressed(evt);
             }
         });
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Subtract_30px_1.png"))); // NOI18N
+        jLabel15.setToolTipText("Réduire");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel15MousePressed(evt);
+            }
+        });
+
+        addPharmPanel.setBackground(new java.awt.Color(255, 255, 255));
+        addPharmPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addPharmPanelMousePressed(evt);
+            }
+        });
+
+        addPharmLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        addPharmLabel.setForeground(new java.awt.Color(0, 119, 135));
+        addPharmLabel.setText("Ajouter un Pharmacien");
+
+        addPharmtPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Add_User_Male_100px_2.png"))); // NOI18N
+
+        javax.swing.GroupLayout addPharmPanelLayout = new javax.swing.GroupLayout(addPharmPanel);
+        addPharmPanel.setLayout(addPharmPanelLayout);
+        addPharmPanelLayout.setHorizontalGroup(
+            addPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPharmPanelLayout.createSequentialGroup()
+                .addGroup(addPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addPharmPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(addPharmtPic))
+                    .addGroup(addPharmPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(addPharmLabel)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        addPharmPanelLayout.setVerticalGroup(
+            addPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPharmPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(addPharmtPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addPharmLabel)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        deletePharmPanel.setBackground(new java.awt.Color(255, 255, 255));
+        deletePharmPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        deletePharmPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                deletePharmPanelMousePressed(evt);
+            }
+        });
+
+        deletePharmLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        deletePharmLabel.setForeground(new java.awt.Color(0, 119, 135));
+        deletePharmLabel.setText("Supprimer un Pharmacien");
+
+        deletePharmPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Delete_User_Male_100px.png"))); // NOI18N
+
+        javax.swing.GroupLayout deletePharmPanelLayout = new javax.swing.GroupLayout(deletePharmPanel);
+        deletePharmPanel.setLayout(deletePharmPanelLayout);
+        deletePharmPanelLayout.setHorizontalGroup(
+            deletePharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deletePharmPanelLayout.createSequentialGroup()
+                .addGroup(deletePharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(deletePharmPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(deletePharmPic))
+                    .addGroup(deletePharmPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(deletePharmLabel)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        deletePharmPanelLayout.setVerticalGroup(
+            deletePharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletePharmPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(deletePharmPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deletePharmLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        infoPharmPanel.setBackground(new java.awt.Color(255, 255, 255));
+        infoPharmPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        infoPharmPanel.setPreferredSize(new java.awt.Dimension(217, 159));
+        infoPharmPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                infoPharmPanelMousePressed(evt);
+            }
+        });
+
+        infoPharmLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        infoPharmLabel.setForeground(new java.awt.Color(0, 119, 135));
+        infoPharmLabel.setText("Details  du Pharmacien");
+
+        infoPharmPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_User_Menu_Male_100px_1.png"))); // NOI18N
+
+        javax.swing.GroupLayout infoPharmPanelLayout = new javax.swing.GroupLayout(infoPharmPanel);
+        infoPharmPanel.setLayout(infoPharmPanelLayout);
+        infoPharmPanelLayout.setHorizontalGroup(
+            infoPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoPharmPanelLayout.createSequentialGroup()
+                .addGap(0, 29, Short.MAX_VALUE)
+                .addGroup(infoPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPharmPanelLayout.createSequentialGroup()
+                        .addComponent(infoPharmPic)
+                        .addGap(60, 60, 60))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPharmPanelLayout.createSequentialGroup()
+                        .addComponent(infoPharmLabel)
+                        .addGap(18, 18, 18))))
+        );
+        infoPharmPanelLayout.setVerticalGroup(
+            infoPharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPharmPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoPharmPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoPharmLabel)
+                .addGap(18, 18, 18))
+        );
+
+        updatePharmPanel.setBackground(new java.awt.Color(255, 255, 255));
+        updatePharmPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        updatePharmPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                updatePharmPanelMousePressed(evt);
+            }
+        });
+
+        updatePharmLabel.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
+        updatePharmLabel.setForeground(new java.awt.Color(0, 119, 135));
+        updatePharmLabel.setText("Modifier un pharmacien");
+
+        updatePharmPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Change_User_100px_1.png"))); // NOI18N
+
+        javax.swing.GroupLayout updatePharmPanelLayout = new javax.swing.GroupLayout(updatePharmPanel);
+        updatePharmPanel.setLayout(updatePharmPanelLayout);
+        updatePharmPanelLayout.setHorizontalGroup(
+            updatePharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updatePharmPanelLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(updatePharmPic)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePharmPanelLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(updatePharmLabel)
+                .addGap(21, 21, 21))
+        );
+        updatePharmPanelLayout.setVerticalGroup(
+            updatePharmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updatePharmPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(updatePharmPic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(updatePharmLabel)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1341,13 +1525,15 @@ updateReceptPanel.setVisible(false);
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(updatePatientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addPatientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(updateInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(90, 90, 90)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deletePatientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(infoPatientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(infoInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addContainerGap())))
@@ -1431,6 +1617,26 @@ updateReceptPanel.setVisible(false);
                     .addContainerGap(703, Short.MAX_VALUE)
                     .addComponent(infoReceptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(56, 56, 56)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(386, Short.MAX_VALUE)
+                    .addComponent(addPharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(360, 360, 360)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(697, Short.MAX_VALUE)
+                    .addComponent(deletePharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(46, 46, 46)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(695, Short.MAX_VALUE)
+                    .addComponent(infoPharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(56, 56, 56)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(381, Short.MAX_VALUE)
+                    .addComponent(updatePharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(359, 359, 359)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1441,18 +1647,20 @@ updateReceptPanel.setVisible(false);
                         .addGap(48, 48, 48)
                         .addComponent(adminLogo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addGap(47, 47, 47)
                         .addComponent(InterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deletePatientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addPatientPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(deleteInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addInfermierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(updatePatientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoPatientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                    .addComponent(updateInfermierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoInfermierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(160, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(242, 242, 242)
@@ -1477,12 +1685,12 @@ updateReceptPanel.setVisible(false);
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(238, 238, 238)
                     .addComponent(addNursePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(330, Short.MAX_VALUE)))
+                    .addContainerGap(326, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(238, 238, 238)
                     .addComponent(deleteNursePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(330, Short.MAX_VALUE)))
+                    .addContainerGap(326, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(413, Short.MAX_VALUE)
@@ -1490,7 +1698,7 @@ updateReceptPanel.setVisible(false);
                     .addGap(149, 149, 149)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(412, Short.MAX_VALUE)
+                    .addContainerGap(401, Short.MAX_VALUE)
                     .addComponent(infoNursePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(155, 155, 155)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1505,12 +1713,12 @@ updateReceptPanel.setVisible(false);
                     .addContainerGap(316, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(418, Short.MAX_VALUE)
+                    .addContainerGap(413, Short.MAX_VALUE)
                     .addComponent(updateChefPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(139, 139, 139)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(416, Short.MAX_VALUE)
+                    .addContainerGap(411, Short.MAX_VALUE)
                     .addComponent(infoChefPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(145, 145, 145)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1525,14 +1733,34 @@ updateReceptPanel.setVisible(false);
                     .addContainerGap(314, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(412, Short.MAX_VALUE)
+                    .addContainerGap(405, Short.MAX_VALUE)
                     .addComponent(updateReceptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(148, 148, 148)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(417, Short.MAX_VALUE)
+                    .addContainerGap(412, Short.MAX_VALUE)
                     .addComponent(infoReceptPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(144, 144, 144)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(239, 239, 239)
+                    .addComponent(addPharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(315, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(239, 239, 239)
+                    .addComponent(deletePharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(319, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(435, Short.MAX_VALUE)
+                    .addComponent(infoPharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(135, 135, 135)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(420, Short.MAX_VALUE)
+                    .addComponent(updatePharmPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(138, 138, 138)))
         );
 
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -1550,31 +1778,36 @@ updateReceptPanel.setVisible(false);
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 968, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 968, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-dispose();        
+Toolkit.getDefaultToolkit().beep();
+        int confirmed = JOptionPane.showConfirmDialog(null,
+            "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
+            JOptionPane.YES_NO_OPTION);
+
+        if (confirmed == JOptionPane.YES_OPTION) {
+            dispose();
+        }       // TODO add your handling code here
+        
     }//GEN-LAST:event_logoutActionPerformed
 
     private void DocButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DocButMousePressed
         setColor(DocBut);
         resetColor(chefBut);
-        resetColor(patientBut);
+        resetColor(InfermierBut);
         resetColor(nurseBut);
         resetColor(receptBut);
-        resetColor(medBut);
+        resetColor(PharmBut);
+      
         //resetColor(ind_doc);
         //indices
           ind_pati.setOpaque(false);
@@ -1582,7 +1815,8 @@ dispose();
   ind_nurse.setOpaque(false);
   ind_chef.setOpaque(false);
   ind_recept.setOpaque(false);
-  ind_med.setOpaque(false);
+  ind_Pharm.setOpaque(false);
+  
   
   
   jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16));
@@ -1590,12 +1824,18 @@ dispose();
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14));
-    jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
+  jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
+   
     //panels
-    deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
+deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);    
+///
+    deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
 /////
  deleteDoctorPanel.setVisible(true);
 infoDoctorPanel.setVisible(true);
@@ -1621,23 +1861,30 @@ updateReceptPanel.setVisible(false);
     private void nurseButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nurseButMousePressed
  //font
   jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14));
+  jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16));
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14));
-    jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
+   
 //indices
    ind_pati.setOpaque(false);
   ind_doc.setOpaque(false);
   ind_nurse.setOpaque(true);
   ind_chef.setOpaque(false);
   ind_recept.setOpaque(false);
-  ind_med.setOpaque(false);
+  ind_Pharm.setOpaque(false);
+  
   //panels
-  deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
+  deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);   
+///
+  deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
 /////
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
@@ -1661,26 +1908,28 @@ updateReceptPanel.setVisible(false);
 //couleur
  setColor(nurseBut);
         resetColor(chefBut);
-        resetColor(patientBut);
+        resetColor(InfermierBut);
         resetColor(DocBut);
-        resetColor(medBut);
+       
         //resetColor(ind_nurse);  
         resetColor(receptBut);    }//GEN-LAST:event_nurseButMousePressed
 
     private void chefButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chefButMousePressed
         setColor(chefBut);
         resetColor(DocBut);
-        resetColor(patientBut);
+        resetColor(InfermierBut);
         resetColor(nurseBut);
         resetColor(receptBut);
-        resetColor(medBut);
+        resetColor(PharmBut);
+        
         //INdice
           ind_pati.setOpaque(false);
   ind_doc.setOpaque(false);
   ind_nurse.setOpaque(false);
   ind_chef.setOpaque(true);
   ind_recept.setOpaque(false);
-  ind_med.setOpaque(false);
+  ind_Pharm.setOpaque(false);
+  
    jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16));
@@ -1688,10 +1937,16 @@ updateReceptPanel.setVisible(false);
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14));
     jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
     //panels
-    deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
+
+  deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);     
+////
+    deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
 /////
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
@@ -1718,10 +1973,11 @@ updateReceptPanel.setVisible(false);
     private void receptButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_receptButMousePressed
  setColor(receptBut);
         resetColor(chefBut);
-        resetColor(patientBut);
+        resetColor(InfermierBut);
         resetColor(nurseBut);
         resetColor(DocBut);   
-        resetColor(medBut);
+        resetColor(PharmBut);
+        
     
 // indices
   ind_pati.setOpaque(false);
@@ -1729,19 +1985,25 @@ updateReceptPanel.setVisible(false);
   ind_nurse.setOpaque(false);
   ind_chef.setOpaque(false);
   ind_recept.setOpaque(true);
-  ind_med.setOpaque(false);
+  ind_Pharm.setOpaque(false);
+  
   //Font
     jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 16));
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14));
-    jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
+   jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
     //panels
-    deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
+     deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);     
+//
+    deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
 ///
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
@@ -1764,32 +2026,40 @@ addReceptPanel.setVisible(true);
 updateReceptPanel.setVisible(true);
     }//GEN-LAST:event_receptButMousePressed
 
-    private void patientButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientButMousePressed
- setColor(patientBut);
+    private void InfermierButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InfermierButMousePressed
+ setColor(InfermierBut);
         resetColor(chefBut);
         resetColor(DocBut);
         resetColor(nurseBut);
         resetColor(receptBut);
-        resetColor(medBut);
+        resetColor(PharmBut);
+       
         //Indices
   ind_pati.setOpaque(true);
   ind_doc.setOpaque(false);
   ind_nurse.setOpaque(false);
   ind_chef.setOpaque(false);
   ind_recept.setOpaque(false);
-   ind_med.setOpaque(false);
+  ind_Pharm.setOpaque(false);
+  
   //font
-   jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
+  
     jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14));
+    jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 16));
   // panels
-  deletePatientPanel.setVisible(true);
-infoPatientPanel.setVisible(true);
-addPatientPanel.setVisible(true);
-updatePatientPanel.setVisible(true);
+   deletePharmPanel.setVisible(false);
+infoPharmPanel.setVisible(false);
+addPharmPanel.setVisible(false);
+updatePharmPanel.setVisible(false);     
+///
+  deleteInfermierPanel.setVisible(true);
+infoInfermierPanel.setVisible(true);
+addInfermierPanel.setVisible(true);
+updateInfermierPanel.setVisible(true);
 /////
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
@@ -1810,7 +2080,7 @@ deleteReceptPanel.setVisible(false);
 infoReceptPanel.setVisible(false);
 addReceptPanel.setVisible(false);
 updateReceptPanel.setVisible(false);
-    }//GEN-LAST:event_patientButMousePressed
+    }//GEN-LAST:event_InfermierButMousePressed
 
     void setColor(JPanel pane){
         pane.setBackground(new Color(204,204,204));
@@ -1848,40 +2118,145 @@ updateReceptPanel.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_DocButFocusGained
 
-    private void medButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medButMousePressed
-new gerermed().setVisible(true);
-        
-        setColor(medBut);
+    private void addInfermierPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addInfermierPanelMousePressed
+new addInfermiere().setVisible(true);
+    }//GEN-LAST:event_addInfermierPanelMousePressed
+
+    private void deleteInfermierPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteInfermierPanelMousePressed
+new deleteInfermiere().setVisible(true);
+    }//GEN-LAST:event_deleteInfermierPanelMousePressed
+
+    private void updateInfermierPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateInfermierPanelMousePressed
+new updateInfermiere().setVisible(true);/*
+new updateInfermiere();    }//GEN-LAST:event_updateInfermierPanelMousePressed
+*/
+    }
+    private void infoInfermierPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoInfermierPanelMousePressed
+        new InfermiereDetails().setVisible(true);
+    }//GEN-LAST:event_infoInfermierPanelMousePressed
+
+    private void addDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDoctorPanelMousePressed
+new addDoctor().setVisible(true);
+    }//GEN-LAST:event_addDoctorPanelMousePressed
+
+    private void deleteDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteDoctorPanelMousePressed
+new deleteDoctor().setVisible(true);     }//GEN-LAST:event_deleteDoctorPanelMousePressed
+
+    private void updateDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateDoctorPanelMousePressed
+     new updateDoctor().setVisible(true);
+    }//GEN-LAST:event_updateDoctorPanelMousePressed
+
+    private void infoDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoDoctorPanelMousePressed
+    new DoctorDetails().setVisible(true);
+    }//GEN-LAST:event_infoDoctorPanelMousePressed
+
+    private void addNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNursePanelMousePressed
+       
+        new addNurse().setVisible(true);
+    }//GEN-LAST:event_addNursePanelMousePressed
+
+    private void deleteNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteNursePanelMousePressed
+      new deleteNurse().setVisible(true);
+    }//GEN-LAST:event_deleteNursePanelMousePressed
+
+    private void updateNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateNursePanelMousePressed
+new updateNurse().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_updateNursePanelMousePressed
+
+    private void infoNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoNursePanelMousePressed
+      new NurseDetails().setVisible(true);
+    }//GEN-LAST:event_infoNursePanelMousePressed
+
+    private void addChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addChefPanelMousePressed
+      new addChefService().setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_addChefPanelMousePressed
+
+    private void deleteChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteChefPanelMousePressed
+    new deleteChef().setVisible(true);
+    }//GEN-LAST:event_deleteChefPanelMousePressed
+
+    private void updateChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateChefPanelMousePressed
+     new updateChefService().setVisible(true); 
+    }//GEN-LAST:event_updateChefPanelMousePressed
+
+    private void infoChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoChefPanelMousePressed
+   new ChefDetails().setVisible(true);
+    }//GEN-LAST:event_infoChefPanelMousePressed
+
+    private void addReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addReceptPanelMousePressed
+       new addReceptioniste().setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_addReceptPanelMousePressed
+
+    private void deleteReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteReceptPanelMousePressed
+        new deleteRecept().setVisible(true);
+    }//GEN-LAST:event_deleteReceptPanelMousePressed
+
+    private void updateReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateReceptPanelMousePressed
+       new updateReceptioniste().setVisible(true); 
+    }//GEN-LAST:event_updateReceptPanelMousePressed
+
+    private void infoReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoReceptPanelMousePressed
+       new ReceptDetails().setVisible(true);
+    }//GEN-LAST:event_infoReceptPanelMousePressed
+
+    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+ Toolkit.getDefaultToolkit().beep();
+ int confirmed = JOptionPane.showConfirmDialog(null, 
+        "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
+        JOptionPane.YES_NO_OPTION);
+
+    if (confirmed == JOptionPane.YES_OPTION) {
+      dispose();
+    }       // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MousePressed
+
+    private void jLabel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MousePressed
+setExtendedState(this.ICONIFIED);
+    }//GEN-LAST:event_jLabel15MousePressed
+
+    private void receptButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_receptButMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_receptButMouseExited
+
+    private void PharmButMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PharmButMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PharmButMouseExited
+
+    private void PharmButMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PharmButMousePressed
+setColor(PharmBut);
         resetColor(chefBut);
         resetColor(DocBut);
         resetColor(nurseBut);
         resetColor(receptBut);
-          resetColor(patientBut);
+         resetColor(InfermierBut);
+       
         //Indices
-  ind_med.setOpaque(true);
+  ind_Pharm.setOpaque(true);
   ind_pati.setOpaque(false);
   ind_doc.setOpaque(false);
   ind_nurse.setOpaque(false);
   ind_chef.setOpaque(false);
   ind_recept.setOpaque(false);
+  
   //font
-   jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16));
+  
     jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14));
   jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14));
-  //Panels
-  deletePatientPanel.setVisible(false);
-infoPatientPanel.setVisible(false);
-addPatientPanel.setVisible(false);
-updatePatientPanel.setVisible(false);
-//////
+   jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 16));
+  // panels
+  deleteInfermierPanel.setVisible(false);
+infoInfermierPanel.setVisible(false);
+addInfermierPanel.setVisible(false);
+updateInfermierPanel.setVisible(false);
+/////
  deleteDoctorPanel.setVisible(false);
 infoDoctorPanel.setVisible(false);
 addDoctorPanel.setVisible(false);
 updateDoctorPanel.setVisible(false);
-///////
+////
  deleteNursePanel.setVisible(false);
 infoNursePanel.setVisible(false);
 addNursePanel.setVisible(false);
@@ -1891,102 +2266,33 @@ deleteChefPanel.setVisible(false);
 infoChefPanel.setVisible(false);
 addChefPanel.setVisible(false);
 updateChefPanel.setVisible(false);
-//////
+////
 deleteReceptPanel.setVisible(false);
 infoReceptPanel.setVisible(false);
 addReceptPanel.setVisible(false);
 updateReceptPanel.setVisible(false);
-    }//GEN-LAST:event_medButMousePressed
+   ////
+deletePharmPanel.setVisible(true);
+infoPharmPanel.setVisible(true);
+addPharmPanel.setVisible(true);
+updatePharmPanel.setVisible(true);
+    }//GEN-LAST:event_PharmButMousePressed
 
-    private void addPatientPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPatientPanelMousePressed
-new addpatient().setVisible(true);
-    }//GEN-LAST:event_addPatientPanelMousePressed
+    private void addPharmPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPharmPanelMousePressed
+      new addPharmacien().setVisible(true);
+    }//GEN-LAST:event_addPharmPanelMousePressed
 
-    private void deletePatientPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePatientPanelMousePressed
-new deletePatient().setVisible(true);
-    }//GEN-LAST:event_deletePatientPanelMousePressed
+    private void deletePharmPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePharmPanelMousePressed
+      new deletePharmacien().setVisible(true);
+    }//GEN-LAST:event_deletePharmPanelMousePressed
 
-    private void updatePatientPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatePatientPanelMousePressed
-new updatePatient().setVisible(true);
-    }//GEN-LAST:event_updatePatientPanelMousePressed
+    private void infoPharmPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoPharmPanelMousePressed
+       new PharmacienDetails().setVisible(true);
+    }//GEN-LAST:event_infoPharmPanelMousePressed
 
-    private void infoPatientPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoPatientPanelMousePressed
-        new PatientDetails().setVisible(true);
-    }//GEN-LAST:event_infoPatientPanelMousePressed
-
-    private void addDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addDoctorPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addDoctorPanelMousePressed
-
-    private void deleteDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteDoctorPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteDoctorPanelMousePressed
-
-    private void updateDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateDoctorPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateDoctorPanelMousePressed
-
-    private void infoDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoDoctorPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoDoctorPanelMousePressed
-
-    private void addNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addNursePanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addNursePanelMousePressed
-
-    private void deleteNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteNursePanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteNursePanelMousePressed
-
-    private void updateNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateNursePanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateNursePanelMousePressed
-
-    private void infoNursePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoNursePanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoNursePanelMousePressed
-
-    private void addChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addChefPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addChefPanelMousePressed
-
-    private void deleteChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteChefPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteChefPanelMousePressed
-
-    private void updateChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateChefPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateChefPanelMousePressed
-
-    private void infoChefPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoChefPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoChefPanelMousePressed
-
-    private void addReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addReceptPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addReceptPanelMousePressed
-
-    private void deleteReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteReceptPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteReceptPanelMousePressed
-
-    private void updateReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateReceptPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateReceptPanelMousePressed
-
-    private void infoReceptPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoReceptPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_infoReceptPanelMousePressed
-
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-int confirmed = JOptionPane.showConfirmDialog(null, 
-        "Êtes-vous sûr de vouloir quitter le programme?", "Message de Confirmation de sortie",
-        JOptionPane.YES_NO_OPTION);
-
-    if (confirmed == JOptionPane.YES_OPTION) {
-      dispose();
-    }       // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel5MousePressed
+    private void updatePharmPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updatePharmPanelMousePressed
+         new updatePharmacien().setVisible(true);
+    }//GEN-LAST:event_updatePharmPanelMousePressed
 
     /**
      * @param args the command line arguments
@@ -2025,19 +2331,24 @@ int confirmed = JOptionPane.showConfirmDialog(null,
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddDoctorLabel;
+    private javax.swing.JLabel AddInfermierLabel;
     private javax.swing.JLabel AddNurseLabel;
-    private javax.swing.JLabel AddPatientLabel;
     private javax.swing.JPanel DocBut;
+    private javax.swing.JPanel InfermierBut;
     private javax.swing.JPanel InterPanel;
+    private javax.swing.JPanel PharmBut;
     private javax.swing.JLabel addChefLabel;
     private javax.swing.JPanel addChefPanel;
     private javax.swing.JLabel addChefPic;
     private javax.swing.JPanel addDoctorPanel;
     private javax.swing.JLabel addDoctorPic1;
+    private javax.swing.JPanel addInfermierPanel;
+    private javax.swing.JLabel addInfermierPic;
     private javax.swing.JPanel addNursePanel;
     private javax.swing.JLabel addNursePic;
-    private javax.swing.JPanel addPatientPanel;
-    private javax.swing.JLabel addPatientPic;
+    private javax.swing.JLabel addPharmLabel;
+    private javax.swing.JPanel addPharmPanel;
+    private javax.swing.JLabel addPharmtPic;
     private javax.swing.JLabel addReceptLabel;
     private javax.swing.JPanel addReceptPanel;
     private javax.swing.JLabel addReceptPic;
@@ -2049,18 +2360,21 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JLabel deleteDoctorLabel;
     private javax.swing.JPanel deleteDoctorPanel;
     private javax.swing.JLabel deleteDoctorPic;
+    private javax.swing.JLabel deleteInfermierLabel;
+    private javax.swing.JPanel deleteInfermierPanel;
+    private javax.swing.JLabel deleteInfermierPic;
     private javax.swing.JLabel deleteNurseLabel;
     private javax.swing.JPanel deleteNursePanel;
     private javax.swing.JLabel deleteNursePic;
-    private javax.swing.JLabel deletePatientLabel;
-    private javax.swing.JPanel deletePatientPanel;
-    private javax.swing.JLabel deletePatientPic;
+    private javax.swing.JLabel deletePharmLabel;
+    private javax.swing.JPanel deletePharmPanel;
+    private javax.swing.JLabel deletePharmPic;
     private javax.swing.JLabel deleteReceptLabel;
     private javax.swing.JPanel deleteReceptPanel;
     private javax.swing.JLabel deleteReceptPic;
+    private javax.swing.JPanel ind_Pharm;
     private javax.swing.JPanel ind_chef;
     private javax.swing.JPanel ind_doc;
-    private javax.swing.JPanel ind_med;
     private javax.swing.JPanel ind_nurse;
     private javax.swing.JPanel ind_pati;
     private javax.swing.JPanel ind_recept;
@@ -2070,12 +2384,15 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JLabel infoDoctorLabel;
     private javax.swing.JPanel infoDoctorPanel;
     private javax.swing.JLabel infoDoctorPic;
+    private javax.swing.JLabel infoInfermierLabel;
+    private javax.swing.JPanel infoInfermierPanel;
+    private javax.swing.JLabel infoInfermierPic;
     private javax.swing.JLabel infoNurseLabel;
     private javax.swing.JPanel infoNursePanel;
     private javax.swing.JLabel infoNursePic;
-    private javax.swing.JLabel infoPatientLabel;
-    private javax.swing.JPanel infoPatientPanel;
-    private javax.swing.JLabel infoPatientPic;
+    private javax.swing.JLabel infoPharmLabel;
+    private javax.swing.JPanel infoPharmPanel;
+    private javax.swing.JLabel infoPharmPic;
     private javax.swing.JLabel infoReceptLabel;
     private javax.swing.JPanel infoReceptPanel;
     private javax.swing.JLabel infoReceptPic;
@@ -2087,6 +2404,7 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2098,9 +2416,7 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logout;
-    private javax.swing.JPanel medBut;
     private javax.swing.JPanel nurseBut;
-    private javax.swing.JPanel patientBut;
     private javax.swing.JPanel receptBut;
     private javax.swing.JPanel side;
     private javax.swing.JLabel updateChefLabel;
@@ -2109,12 +2425,15 @@ int confirmed = JOptionPane.showConfirmDialog(null,
     private javax.swing.JLabel updateDoctorLabel3;
     private javax.swing.JPanel updateDoctorPanel;
     private javax.swing.JLabel updateDoctorPic;
+    private javax.swing.JLabel updateInfermierLabel;
+    private javax.swing.JPanel updateInfermierPanel;
+    private javax.swing.JLabel updateInfermierPic;
     private javax.swing.JLabel updateNurseLabel;
     private javax.swing.JPanel updateNursePanel;
     private javax.swing.JLabel updateNursePic;
-    private javax.swing.JLabel updatePatientLabel;
-    private javax.swing.JPanel updatePatientPanel;
-    private javax.swing.JLabel updatePatientPic;
+    private javax.swing.JLabel updatePharmLabel;
+    private javax.swing.JPanel updatePharmPanel;
+    private javax.swing.JLabel updatePharmPic;
     private javax.swing.JLabel updateReceptLabel;
     private javax.swing.JPanel updateReceptPanel;
     private javax.swing.JLabel updateReceptPic;
