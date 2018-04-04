@@ -49,7 +49,6 @@ setIconImage(image);
         qte_label = new javax.swing.JLabel();
         prix_label = new javax.swing.JLabel();
         name_field = new javax.swing.JTextField();
-        date_field = new javax.swing.JFormattedTextField();
         add_button = new javax.swing.JToggleButton();
         cancel_button = new javax.swing.JToggleButton();
         name_label = new javax.swing.JLabel();
@@ -84,6 +83,7 @@ setIconImage(image);
         pseudo = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        date_field = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -113,20 +113,6 @@ setIconImage(image);
         name_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_fieldActionPerformed(evt);
-            }
-        });
-
-        date_field.setForeground(new java.awt.Color(0, 51, 51));
-        date_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        date_field.setText("aaaa/mm/jj");
-        date_field.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                date_fieldFocusGained(evt);
-            }
-        });
-        date_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                date_fieldActionPerformed(evt);
             }
         });
 
@@ -314,6 +300,8 @@ setIconImage(image);
             }
         });
 
+        date_field.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout Form_PanelLayout = new javax.swing.GroupLayout(Form_Panel);
         Form_Panel.setLayout(Form_PanelLayout);
         Form_PanelLayout.setHorizontalGroup(
@@ -366,12 +354,12 @@ setIconImage(image);
                                     .addComponent(password)
                                     .addComponent(pseudo)))
                             .addGroup(Form_PanelLayout.createSequentialGroup()
+                                .addComponent(qte_label)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(Form_PanelLayout.createSequentialGroup()
                                 .addComponent(date_label)
                                 .addGap(32, 32, 32)
-                                .addComponent(date_field))
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addComponent(qte_label)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(date_field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(Form_PanelLayout.createSequentialGroup()
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Form_PanelLayout.createSequentialGroup()
@@ -437,10 +425,9 @@ setIconImage(image);
                     .addComponent(nom_icon2))
                 .addGap(25, 25, 25)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(date_label)
-                        .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(date_icon))
+                    .addComponent(date_label)
+                    .addComponent(date_icon)
+                    .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nom_icon5)
@@ -531,14 +518,6 @@ setIconImage(image);
         name_field.setText("");
     }//GEN-LAST:event_name_fieldActionPerformed
 
-    private void date_fieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_date_fieldFocusGained
-        date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldFocusGained
-
-    private void date_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_fieldActionPerformed
-        date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldActionPerformed
-
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         try{
 
@@ -556,7 +535,7 @@ setIconImage(image);
             pat.setString(7,email.getText());
             pat.setString(8,diplome.getText());
             pat.setString(9,lieu.getText());
-            pat.setString(10,date_field.getText());
+            pat.setObject(10,date_field.getDate());
 
             pat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Le médicament a été ajouté");
@@ -659,7 +638,7 @@ int xy;
     diplome.setText("");
     lieu.setText("");
     lname_field.setText("");
-    date_field.setText("0000/00/00");
+    date_field.setCalendar(null);
 }
     /**
      * @param args the command line arguments
@@ -702,7 +681,7 @@ int xy;
     private javax.swing.JToggleButton add_button;
     private javax.swing.JTextArea adresse;
     private javax.swing.JToggleButton cancel_button;
-    private javax.swing.JFormattedTextField date_field;
+    private com.toedter.calendar.JDateChooser date_field;
     private javax.swing.JLabel date_icon;
     private javax.swing.JLabel date_label;
     private javax.swing.JTextArea diplome;

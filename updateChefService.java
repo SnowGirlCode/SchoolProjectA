@@ -54,7 +54,6 @@ setIconImage(image);
         qte_label = new javax.swing.JLabel();
         prix_label = new javax.swing.JLabel();
         name_field = new javax.swing.JTextField();
-        date_field = new javax.swing.JFormattedTextField();
         name_label = new javax.swing.JLabel();
         nom_icon = new javax.swing.JLabel();
         date_icon = new javax.swing.JLabel();
@@ -88,6 +87,7 @@ setIconImage(image);
         cancel_button = new javax.swing.JToggleButton();
         update_button = new javax.swing.JToggleButton();
         id = new javax.swing.JLabel();
+        date_field = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         med_details1 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -125,20 +125,6 @@ setIconImage(image);
         name_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_fieldActionPerformed(evt);
-            }
-        });
-
-        date_field.setForeground(new java.awt.Color(0, 51, 51));
-        date_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        date_field.setToolTipText("Date");
-        date_field.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                date_fieldFocusGained(evt);
-            }
-        });
-        date_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                date_fieldActionPerformed(evt);
             }
         });
 
@@ -211,12 +197,22 @@ setIconImage(image);
         adresse.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
         adresse.setForeground(new java.awt.Color(0, 51, 51));
         adresse.setRows(5);
+        adresse.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                adresseFocusGained(evt);
+            }
+        });
         jScrollPane2.setViewportView(adresse);
 
         diplome.setColumns(20);
         diplome.setFont(new java.awt.Font("Tekton Pro", 1, 14)); // NOI18N
         diplome.setForeground(new java.awt.Color(0, 51, 51));
         diplome.setRows(5);
+        diplome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                diplomeFocusGained(evt);
+            }
+        });
         jScrollPane3.setViewportView(diplome);
 
         tel.setFont(new java.awt.Font("Tekton Pro", 0, 14)); // NOI18N
@@ -317,6 +313,8 @@ setIconImage(image);
         id.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         id.setForeground(new java.awt.Color(74, 173, 173));
 
+        date_field.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout Form_PanelLayout = new javax.swing.GroupLayout(Form_Panel);
         Form_Panel.setLayout(Form_PanelLayout);
         Form_PanelLayout.setHorizontalGroup(
@@ -349,14 +347,6 @@ setIconImage(image);
                         .addGap(18, 18, 18)
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addComponent(lieu_label)
-                                .addGap(41, 41, 41)
-                                .addComponent(lieu))
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addComponent(date_label)
-                                .addGap(32, 32, 32)
-                                .addComponent(date_field))
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
                                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(name_label1)
                                     .addComponent(name_label))
@@ -365,7 +355,15 @@ setIconImage(image);
                                     .addComponent(name_field, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(pseudo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lname_field, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))))
+                                    .addComponent(lname_field, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+                            .addGroup(Form_PanelLayout.createSequentialGroup()
+                                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lieu_label)
+                                    .addComponent(date_label))
+                                .addGap(32, 32, 32)
+                                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(date_field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lieu))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
@@ -449,21 +447,23 @@ setIconImage(image);
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(qte_min_label)
                             .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Form_PanelLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(date_label)
-                                .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(date_label)
                             .addComponent(date_icon)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nom_icon7)
-                            .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(prix_label)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nom_icon7)
+                                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(prix_label)
+                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
+                                .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)))))
                 .addGap(18, 18, 18)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -502,7 +502,7 @@ setIconImage(image);
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false
@@ -632,16 +632,8 @@ setIconImage(image);
         name_field.setText("");
     }//GEN-LAST:event_name_fieldActionPerformed
 
-    private void date_fieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_date_fieldFocusGained
-        date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldFocusGained
-
-    private void date_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_fieldActionPerformed
-        date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldActionPerformed
-
     private void lieuFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lieuFocusGained
-        // TODO add your handling code here:
+   lieu.setText("");
     }//GEN-LAST:event_lieuFocusGained
 
     private void lieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lieuActionPerformed
@@ -657,7 +649,7 @@ setIconImage(image);
     }//GEN-LAST:event_lname_fieldActionPerformed
 
     private void telFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telFocusGained
-        // TODO add your handling code here:
+       tel.setText("");
     }//GEN-LAST:event_telFocusGained
 
     private void telActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telActionPerformed
@@ -665,7 +657,7 @@ setIconImage(image);
     }//GEN-LAST:event_telActionPerformed
 
     private void emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailFocusGained
-        // TODO add your handling code here:
+      email.setText("");
     }//GEN-LAST:event_emailFocusGained
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -673,7 +665,7 @@ setIconImage(image);
     }//GEN-LAST:event_emailActionPerformed
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
-        // TODO add your handling code here:
+      password.setText("");
     }//GEN-LAST:event_passwordFocusGained
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -681,7 +673,7 @@ setIconImage(image);
     }//GEN-LAST:event_passwordActionPerformed
 
     private void pseudoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pseudoFocusGained
-        // TODO add your handling code here:
+      pseudo.setText("");
     }//GEN-LAST:event_pseudoFocusGained
 
     private void pseudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pseudoActionPerformed
@@ -705,7 +697,7 @@ setIconImage(image);
             pat.setString(2,lname_field.getText());
             pat.setString(3,pseudo.getText());
             pat.setString(4,password.getText());
-            pat.setString(5,date_field.getText());
+            pat.setObject(5,date_field.getDate());
             pat.setString(6,lieu.getText());
             pat.setString(7,adresse.getText());
             pat.setString(8,email.getText());
@@ -737,7 +729,7 @@ setIconImage(image);
         password.setText(model.getValueAt(index,2).toString());
         name_field.setText(model.getValueAt(index,3).toString());
         lname_field.setText(model.getValueAt(index,4).toString());
-        date_field.setText(model.getValueAt(index,9).toString());
+       date_field.setDate((java.util.Date) model.getValueAt(index,9));
         lieu.setText(model.getValueAt(index,10).toString());
         adresse.setText(model.getValueAt(index,5).toString());
         tel.setText(model.getValueAt(index,6).toString());
@@ -759,6 +751,14 @@ setIconImage(image);
     private void jLabel15MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MousePressed
         setExtendedState(this.ICONIFIED);
     }//GEN-LAST:event_jLabel15MousePressed
+
+    private void adresseFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_adresseFocusGained
+     adresse.setText("");
+    }//GEN-LAST:event_adresseFocusGained
+
+    private void diplomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_diplomeFocusGained
+     diplome.setText("");
+    }//GEN-LAST:event_diplomeFocusGained
 
      public void showTableData(){
     try{
@@ -799,7 +799,7 @@ setIconImage(image);
     diplome.setText("");
     lieu.setText("");
     lname_field.setText("");
-    date_field.setText("0000/00/00");
+    date_field.setCalendar(null);
 }
     /**
      * @param args the command line arguments
@@ -841,7 +841,7 @@ setIconImage(image);
     private javax.swing.JLabel action_label;
     private javax.swing.JTextArea adresse;
     private javax.swing.JToggleButton cancel_button;
-    private javax.swing.JFormattedTextField date_field;
+    private com.toedter.calendar.JDateChooser date_field;
     private javax.swing.JLabel date_icon;
     private javax.swing.JLabel date_label;
     private javax.swing.JTextArea diplome;

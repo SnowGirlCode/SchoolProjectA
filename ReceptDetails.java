@@ -335,14 +335,18 @@ showTableData();
     }//GEN-LAST:event_reset_panelMousePressed
 public void showTableData(){
     try{
-        
+           if(nom.getText().equals("")||prenom.getText().equals(""))
+        {
+             JOptionPane.showMessageDialog(null, "Veuillez saisir votre nom & prénom S'il vous plaît!");
+        }
+           else{
       con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_profile","root","mysql");
       String sql = "SELECT * FROM receptionniste";
       pat = con.prepareStatement(sql);
       ra = pat.executeQuery();
      
     med_details1.setModel(DbUtils.resultSetToTableModel(ra));
-    
+           }
     }
     catch (Exception ex){
           JOptionPane.showMessageDialog(null, ex);

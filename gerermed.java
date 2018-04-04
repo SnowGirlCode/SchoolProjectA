@@ -15,8 +15,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -77,7 +80,6 @@ alert.setVisible(false);
         prix_field = new javax.swing.JTextField();
         dosage_label = new javax.swing.JLabel();
         date_label = new javax.swing.JLabel();
-        date_field = new javax.swing.JFormattedTextField();
         dosage_slider = new javax.swing.JSlider();
         qte_spinner = new javax.swing.JSpinner();
         dosage_spinner = new javax.swing.JSpinner();
@@ -100,6 +102,7 @@ alert.setVisible(false);
         qte_icon1 = new javax.swing.JLabel();
         qte_min_slider = new javax.swing.JSlider();
         qte_min_spinner = new javax.swing.JSpinner();
+        date_field = new com.toedter.calendar.JDateChooser();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -245,20 +248,6 @@ alert.setVisible(false);
         date_label.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         date_label.setText("Date de péremption");
 
-        date_field.setForeground(new java.awt.Color(0, 51, 51));
-        date_field.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        date_field.setText("aa/mm/jj");
-        date_field.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                date_fieldFocusGained(evt);
-            }
-        });
-        date_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                date_fieldActionPerformed(evt);
-            }
-        });
-
         dosage_slider.setMaximum(1000);
         dosage_slider.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -384,6 +373,8 @@ alert.setVisible(false);
             }
         });
 
+        date_field.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout Form_PanelLayout = new javax.swing.GroupLayout(Form_Panel);
         Form_Panel.setLayout(Form_PanelLayout);
         Form_PanelLayout.setHorizontalGroup(
@@ -426,12 +417,6 @@ alert.setVisible(false);
                                 .addComponent(name_field)
                                 .addGap(6, 6, 6))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancel_button)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
                         .addComponent(dose_icon)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dosage_label)
@@ -439,21 +424,6 @@ alert.setVisible(false);
                         .addComponent(dosage_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dosage_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Form_PanelLayout.createSequentialGroup()
-                        .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addComponent(price_icon)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(prix_label))
-                            .addGroup(Form_PanelLayout.createSequentialGroup()
-                                .addComponent(date_icon)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(date_label)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(prix_field, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                            .addComponent(date_field, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
                         .addComponent(qte_icon1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -461,7 +431,31 @@ alert.setVisible(false);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(qte_min_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(qte_min_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(qte_min_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
+                        .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Form_PanelLayout.createSequentialGroup()
+                                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Form_PanelLayout.createSequentialGroup()
+                                        .addComponent(price_icon)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(prix_label))
+                                    .addGroup(Form_PanelLayout.createSequentialGroup()
+                                        .addComponent(date_icon)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(date_label)))
+                                .addGap(18, 18, 18)
+                                .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(Form_PanelLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(prix_field, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(date_field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(Form_PanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cancel_button)))
+                        .addGap(17, 17, 17))))
             .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Form_PanelLayout.createSequentialGroup()
                     .addContainerGap(182, Short.MAX_VALUE)
@@ -517,10 +511,10 @@ alert.setVisible(false);
                     .addComponent(dose_icon))
                 .addGap(18, 18, 18)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(date_icon, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(date_label))
-                    .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(date_icon, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(date_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(date_label)))
                 .addGap(30, 30, 30)
                 .addGroup(Form_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_button)
@@ -683,7 +677,8 @@ public void clear(){
     qte_min_spinner.setValue(0);
     qte_min_slider.setValue(0);
     prix_field.setText("");
-    date_field.setText("00/00/00");
+    
+   date_field.setCalendar(null);
 }
 public void showTableData(){
     try{
@@ -719,7 +714,13 @@ name_field.setText("");
             pat.setInt(2,(int) qte_spinner.getValue());
             pat.setInt(3, (int) dosage_spinner.getValue());
             pat.setString(4,prix_field.getText());
-            pat.setString(5,date_field.getText());
+            //Date date = (Date) new SimpleDateFormat("yyyy-MM-dd").setDate(date_field.getDate());
+            
+        //date_field.setDate(date);
+       // java.util.Date jud =  date_field.getDate();
+//SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy");
+//date_field.setDate(sdf.format(jud));
+            pat.setObject(5, date_field.getDate());
             pat.setInt(6,(int) qte_min_spinner.getValue());
             pat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Le médicament a été ajouté");
@@ -797,7 +798,8 @@ name_field.setText("");
             pat.setInt(6, (int) qte_min_spinner.getValue());
             pat.setInt(3, (int) dosage_spinner.getValue());
             pat.setString(4,prix_field.getText());
-            pat.setString(5,date_field.getText());
+             
+            pat.setObject(5, date_field.getDate());
             pat.setString(7,name_field.getText());
             pat.executeUpdate();
             JOptionPane.showMessageDialog(null, "Le médicament a été modifié!");
@@ -835,10 +837,6 @@ dosage_slider.setValue((int) dosage_spinner.getValue());
 prix_field.setText("");
     }//GEN-LAST:event_prix_fieldActionPerformed
 
-    private void date_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_fieldActionPerformed
-date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldActionPerformed
-
     private void name_fieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_fieldFocusGained
 name_field.setText("");
     }//GEN-LAST:event_name_fieldFocusGained
@@ -846,10 +844,6 @@ name_field.setText("");
     private void prix_fieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prix_fieldFocusGained
 prix_field.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_prix_fieldFocusGained
-
-    private void date_fieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_date_fieldFocusGained
-date_field.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_date_fieldFocusGained
 
     private void med_details1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_med_details1MouseClicked
    
@@ -861,9 +855,10 @@ date_field.setText("");        // TODO add your handling code here:
         qte_slider.setValue((int) model.getValueAt(index,1));
         dosage_slider.setValue((int) model.getValueAt(index,2));
         prix_field.setText(model.getValueAt(index,3).toString());
-        date_field.setText(model.getValueAt(index,4).toString());
-         qte_min_slider.setValue((int) model.getValueAt(index,5));
-         qte_min_spinner.setValue(model.getValueAt(index,5));
+        //Date date = (Date) new SimpleDateFormat("yyyy-MM-dd").parse((String)model.getValueAt(index,4));
+        date_field.setDate((java.util.Date) model.getValueAt(index,4));
+        qte_min_slider.setValue((int) model.getValueAt(index,5));
+        qte_min_spinner.setValue(model.getValueAt(index,5));
     }//GEN-LAST:event_med_details1MouseClicked
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
@@ -995,7 +990,7 @@ if(  (cal.getTime()).after(datePeremp))
     private javax.swing.JLabel alert;
     private javax.swing.JToggleButton cancel_button;
     private javax.swing.JComboBox<String> combo;
-    private javax.swing.JFormattedTextField date_field;
+    private com.toedter.calendar.JDateChooser date_field;
     private javax.swing.JLabel date_icon;
     private javax.swing.JLabel date_label;
     private javax.swing.JToggleButton delete_button;

@@ -48,9 +48,15 @@ setIconImage(image);
         patient1 = new javax.swing.JLabel();
         patient2 = new javax.swing.JLabel();
         patient3 = new javax.swing.JLabel();
-        patient4 = new javax.swing.JLabel();
         patient5 = new javax.swing.JLabel();
         patient6 = new javax.swing.JLabel();
+        patient7 = new javax.swing.JLabel();
+        patient8 = new javax.swing.JLabel();
+        patient9 = new javax.swing.JLabel();
+        patient10 = new javax.swing.JLabel();
+        patient11 = new javax.swing.JLabel();
+        patient12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -94,11 +100,7 @@ setIconImage(image);
 
         patient3.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         patient3.setForeground(new java.awt.Color(41, 50, 40));
-        patient3.setText("Assurance:");
-
-        patient4.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        patient4.setForeground(new java.awt.Color(41, 50, 40));
-        patient4.setText("Code:");
+        patient3.setText("Lieu Naissance:");
 
         patient5.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         patient5.setForeground(new java.awt.Color(41, 50, 40));
@@ -107,6 +109,32 @@ setIconImage(image);
         patient6.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         patient6.setForeground(new java.awt.Color(41, 50, 40));
         patient6.setText("Adresse:");
+
+        patient7.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient7.setForeground(new java.awt.Color(41, 50, 40));
+        patient7.setText("Email:");
+
+        patient8.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient8.setForeground(new java.awt.Color(41, 50, 40));
+        patient8.setText("Contact d'Urgence:");
+
+        patient9.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient9.setForeground(new java.awt.Color(41, 50, 40));
+        patient9.setText("Médecin du cas:");
+
+        patient10.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient10.setForeground(new java.awt.Color(41, 50, 40));
+        patient10.setText("Sage-femme du cas:");
+
+        patient11.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient11.setForeground(new java.awt.Color(41, 50, 40));
+        patient11.setText("Groupe Sanguin:");
+
+        patient12.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
+        patient12.setForeground(new java.awt.Color(41, 50, 40));
+        patient12.setText("Historique médical:");
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout sidepanelLayout = new javax.swing.GroupLayout(sidepanel);
         sidepanel.setLayout(sidepanelLayout);
@@ -126,17 +154,24 @@ setIconImage(image);
                                 .addGap(152, 152, 152)
                                 .addComponent(patient)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(patientNom))
+                                .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patientNom)
+                                    .addComponent(jLabel1)))
                             .addGroup(sidepanelLayout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(patient2)
-                                    .addComponent(patient1)
-                                    .addComponent(patient3)
-                                    .addComponent(patient4)
-                                    .addComponent(patient5)
-                                    .addComponent(patient6))))
-                        .addGap(0, 368, Short.MAX_VALUE))))
+                                    .addComponent(patient1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient6, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient7, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient8, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient9, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient10, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient11, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(patient12, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(0, 334, Short.MAX_VALUE))))
         );
         sidepanelLayout.setVerticalGroup(
             sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,21 +181,33 @@ setIconImage(image);
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(2, 2, 2)
-                .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(patient)
+                .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(patient)
+                        .addComponent(jLabel1))
                     .addComponent(patientNom))
-                .addGap(50, 50, 50)
+                .addGap(70, 70, 70)
                 .addComponent(patient1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(patient2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patient3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(patient4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patient5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patient6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(patient12)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -172,7 +219,7 @@ setIconImage(image);
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(sidepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -272,16 +319,22 @@ setIconImage(image);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel patient;
     private javax.swing.JLabel patient1;
+    private javax.swing.JLabel patient10;
+    private javax.swing.JLabel patient11;
+    private javax.swing.JLabel patient12;
     private javax.swing.JLabel patient2;
     private javax.swing.JLabel patient3;
-    private javax.swing.JLabel patient4;
     private javax.swing.JLabel patient5;
     private javax.swing.JLabel patient6;
+    private javax.swing.JLabel patient7;
+    private javax.swing.JLabel patient8;
+    private javax.swing.JLabel patient9;
     private javax.swing.JLabel patientNom;
     private javax.swing.JPanel sidepanel;
     private javax.swing.JLabel sidepic;

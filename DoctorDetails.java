@@ -336,14 +336,18 @@ showTableData();
     }//GEN-LAST:event_reset_panelMousePressed
 public void showTableData(){
     try{
-        
+         if(nom.getText().equals(null)||nom.getText().equals(null))
+        {
+             JOptionPane.showMessageDialog(null, "Veuillez saisir votre nom & prénom S'il vous plaît!");
+        }
+         else {
       con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_profile","root","mysql");
       String sql = "SELECT * FROM doctor";
       pat = con.prepareStatement(sql);
       ra = pat.executeQuery();
      
     med_details1.setModel(DbUtils.resultSetToTableModel(ra));
-    
+         }
     }
     catch (Exception ex){
           JOptionPane.showMessageDialog(null, ex);
@@ -351,7 +355,11 @@ public void showTableData(){
 }
     public void showTableDataSpecial(){
     try{
-        
+         if(nom.getText().equals("")||prenom.getText().equals(""))
+        {
+             JOptionPane.showMessageDialog(null, "Veuillez saisir votre nom & prénom S'il vous plaît!");
+        }
+         else{
       con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_profile","root","mysql");
       String sql = "SELECT * FROM doctor where Nom =? and Prenom=?";
       pat = con.prepareStatement(sql);
@@ -360,7 +368,7 @@ public void showTableData(){
                   
            ra = pat.executeQuery();
     med_details1.setModel(DbUtils.resultSetToTableModel(ra));
-    
+         }
     }
     catch (Exception ex){
           JOptionPane.showMessageDialog(null, ex);

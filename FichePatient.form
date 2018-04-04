@@ -56,7 +56,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <Component id="sidepanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -84,21 +84,29 @@
                                       <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                       <Component id="patient" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="patientNom" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="patientNom" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="patient2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="patient1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="patient3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="patient4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="patient5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="patient6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patient12" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="368" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="334" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -113,22 +121,35 @@
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="patient" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="patientNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="patient" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="patientNom" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Component id="patient1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="patient2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="patient3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="patient4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="patient5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="patient6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="patient12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -218,18 +239,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="28" green="32" red="29" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Assurance:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="patient4">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tekton Pro" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="28" green="32" red="29" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Code:"/>
+                <Property name="text" type="java.lang.String" value="Lieu Naissance:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="patient5">
@@ -252,6 +262,77 @@
                   <Color blue="28" green="32" red="29" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adresse:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient7">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Email:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient8">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Contact d&apos;Urgence:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient9">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="M&#xe9;decin du cas:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient10">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Sage-femme du cas:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient11">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Groupe Sanguin:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="patient12">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tekton Pro" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="28" green="32" red="29" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Historique m&#xe9;dical:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
             </Component>
           </SubComponents>

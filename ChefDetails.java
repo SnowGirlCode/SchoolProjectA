@@ -207,6 +207,11 @@ showTableData();
 
         nom.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
         nom.setToolTipText("Nom du chef-service");
+        nom.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomFocusGained(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(41, 39, 40));
@@ -218,6 +223,11 @@ showTableData();
 
         prenom.setFont(new java.awt.Font("Tekton Pro", 0, 18)); // NOI18N
         prenom.setToolTipText("Prénom du chef-service");
+        prenom.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                prenomFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -335,6 +345,14 @@ showTableData();
         prenom.setText("");
         showTableData();
     }//GEN-LAST:event_reset_panelMousePressed
+
+    private void nomFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomFocusGained
+        nom.setText("");
+    }//GEN-LAST:event_nomFocusGained
+
+    private void prenomFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prenomFocusGained
+       prenom.setText("");
+    }//GEN-LAST:event_prenomFocusGained
 public void showTableData(){
     try{
         
@@ -352,8 +370,11 @@ public void showTableData(){
 }
     public void showTableDataSpecial(){
     try{
-        
-      con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_profile","root","mysql");
+        if(nom.getText().equals(null)||prenom.getText().equals(null))
+        {
+             JOptionPane.showMessageDialog(null, "Veuillez saisir votre nom & prénom S'il vous plaît!");
+        }
+        else{con = DriverManager.getConnection("jdbc:mysql://localhost/maternite_profile","root","mysql");
       String sql = "SELECT * FROM chef_service where Nom =? and Prenom=?";
       pat = con.prepareStatement(sql);
       pat.setString(1,nom.getText());
@@ -362,7 +383,7 @@ public void showTableData(){
            ra = pat.executeQuery();
     med_details1.setModel(DbUtils.resultSetToTableModel(ra));
     
-    }
+    }}
     catch (Exception ex){
           JOptionPane.showMessageDialog(null, ex);
     }

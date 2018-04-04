@@ -355,6 +355,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Nom du chef-service"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
@@ -385,6 +388,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Pr&#xe9;nom du chef-service"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prenomFocusGained"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
